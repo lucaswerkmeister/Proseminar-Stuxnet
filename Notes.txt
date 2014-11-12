@@ -1,0 +1,19 @@
+Interessant:
+Stuxnet records a timestamp, along with other system information, within itself each time a new infection occurs. Thus, each sample has a history of every computer that was infected, including the first infection.
+(Page 7 / L273)
+In one case, time between compilation and first infection was only 12 hours!
+
+Stuxnet does not install if:
+- 64-bit (Page 16)
+- after 06/24/2012 (Page 17)
+- Registry key set to certain value (Page 18)
+- after another date in config file (Page 18)
+
+Win32k.sys Privilege Escalation (Page 19):
+- instruct Win32k.sys to load malformed keyboard layout file
+- loading procedure includes function table, with index not properly validated
+- evil index from malformed file points outside table, to some data (of Win32k.sys)
+- at content address of that data, stuxnet had written a jump to allocated memory
+- Win32k.sys then jumps in function table, to that jump, to allocated memory
+- that allocated memory is run with escalated privileges – profit
+- restore original keyboard layout, delete malformed keyboard layout file
