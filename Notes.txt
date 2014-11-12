@@ -18,6 +18,13 @@ Win32k.sys Privilege Escalation (Page 19):
 - that allocated memory is run with escalated privileges – profit
 - restore original keyboard layout, delete malformed keyboard layout file
 
+autorun.inf (Page 31-32):
+- Windows autorun.inf parser is very forgiving: skips until valid autorun command is found
+- Stuxnet autorun.inf = cat stuxnet_executable actual_autorun.inf
+- autorun.inf instructs Windows to auto-run the autorun.inf file itself (which is a legal executable, see above)
+- Also adds new context menu entry to drive, called “Open” (but taken from shell32.dll, so presumably localized?).
+  Context menu now contains two Opens, one launches Stuxnet (then real Open to avoid suspicion)
+
 Possible implications about the attackers:
 - Page 18:
   - Infection aborts if certain registry value = 19790509
