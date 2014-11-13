@@ -28,17 +28,11 @@ autorun.inf (Page 31-32):
 Possible implications about the attackers:
 - Page 18:
   - Infection aborts if certain registry value = 19790509
-  - Might be May 9, 1979
-  - On that day, new Islamic Iranian government executed first Jew, prompting mass exodus of Jewish community of Iran
+  - Possibly significant date
 - Page 24:
   - Unobfuscated project file path b:\myrtus\src\objfre_w2k_x86\i386\guava.pdb
   - Guavas are in the Myrtle (lat. Myrtus) genus
   - myrtus = MyRTUs? RTU = Remote Terminal Unit, in some places = PLC
   - Myrtle = hebr. Hadassah, Hadassah is other name of Esther (see OT)
-  - Pretty fucked up story, really
-    - Hadassah is wife of King Ahasuerus / Xerxes I
-    - she learns of plot for all Jews to be killed (King declared them “vogelfrei” for one day, not knowing his wife is Jewish)
-    - pleads with King, result: Jews may defend themselves (King cannot retract law), result: would-be executioners + 75.000 persians killed, result: holiday of Purim
-    - complicated stuff, if I really want to include this I should probably actually read the book instead of the Wikipedia summary
-Not sure what the implication would be. Jewish-Iranian enmity? Israel attacker? US attacker, good Israel-US relations? ?? ???
-Probably waaaay too hot and unsure (and untechnical)
+Generally very difficult to decipher, and attackers would want to implicate other party –
+don’t expand upon, at most mention in passing.
