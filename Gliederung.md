@@ -36,4 +36,7 @@ WIP an erstem grobem Entwurf.
         - S7P files (33-34)
         - MCP files (34)
         - TMP files (34-35)
-3. Sabotage
+3. Tarnung
+   - Windows rootkit (24)
+   - PLC rootkit (48)
+4. Sabotage
