@@ -40,3 +40,8 @@ WIP an erstem grobem Entwurf.
    - Windows rootkit (24)
    - PLC rootkit (48)
 4. Sabotage
+   - vielleicht sollte hier die PLC erklärung hin? wie viel brauchen wir überhaupt?
+   - infection checks (39)
+     - contain the actual attack to the target even though the threat spread globally
+   - sequence A/B (41-45) – 1.x only
+   - sequence C (45-48, 0.5 5-12) – deactivated and incomplete in 1.x
