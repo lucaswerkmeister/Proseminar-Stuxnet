@@ -24,7 +24,7 @@ WIP an erstem grobem Entwurf.
       - S7P files (33-34)
       - MCP files (34) ?
       - Which files?
-        - 0.5 infects files on inserted removable driv s
+        - 0.5 infects files on inserted removable drives
         - All versions infect opened files
         - But files are always checked for “suitable”
   2. Updates
