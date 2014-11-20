@@ -1,0 +1,33 @@
+- Allgemein
+  - Gezielte Angriffe auf Industrieanlagen sind möglich
+  - Verbreitung auf Rechnern, die nicht unmittelbar zu den Zentrifugen gehörten, war auch erforderlich
+    - Ultimative Zielrechner haben keine Verbindung zum Internet
+    - Stuxnet musste sich „durchhangeln“
+      - hier vllt. Vergleich mit 0.5: Viel weniger aggressiv. Vermutung: Erreichte Ziel nicht, daher Stuxnet 1.0 viel aggressiver (4 0days etc.)
+    - Jeder Rechner ist schützenswert, auch wenn er selbst keine kritischen Informationen enthält oder Anlagen kontrolliert
+      - Botnetze
+      - DDoS
+- Einzelne Angriffe
+  - USB-Sticks sind gefährlich
+    - Autorun – 1.001
+    - LNK – 1.10x
+    - Andere USB-Gefahren erwähnen? Ladegeräte, die sich als andere anmelden? Nicht in Stuxnet…
+  - Netzwerkdienste, die nicht gebraucht werden, unterbinden
+    - WinCC – kann die Datenbank sinnvoll getötet werden?
+    - Print Spooler – aber wird wahrscheinlich benötigt
+    - SMB
+    - Peer-to-Peer-Kommunikation (für Stuxnet-Updates)
+    - Mailslots – 0.5
+    - File shares – 0.5
+  - Allgemein Angriffsfläche minimieren
+    - Keyboard Layout Escalation hätte *theoretisch* durch Unterbindung von Datei-Erstellung unterbunden werden können
+      - aber ohne genaue Kenntnis des Angriffs ist es i. A. schwer, einzuschätzen, welche Dateien vertrauenswürdig sind
+    - Balance – bei zu viel Beschränkung meinen User wahrscheinlich, Admins seien bösartig und wollten ihnen das Leben schwerstmöglich machen ;)
+  - Bei Industrieanlagen ist es gefährlich, sich auf die Technik voll zu verlassen
+    - Stuxnet hatte PLC-Rootkit – auf infizierten Rechnern wurden bösartige PLC-Blöcke versteckt
+      - Aber PLCs hatten nicht die Fähigkeit, Rechner zu infizieren – von neu aufgesetztem System aus wäre Manipulation sichtbar geworden
+    - Stuxnet spielte während des Angriffs auf die Anlage alte Diagnostik-Daten ab
+      - Angriff war über Terminals nicht sichtbar
+      - Aber in der Anlage hätte man vielleicht die falschen Frequenzen feststellen können? Motoren hören?
+        - Vmtl. daher war der Stuxnet 1-Angriff (Motoren) sehr kurz, mit langen (26d) Pausen dazwischen – nur mit Glück “auf frischer Tat ertappen”
+    - Weniger Technologie-Dependenz: Leichter gesagt als getan.
