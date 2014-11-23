@@ -54,7 +54,7 @@ WIP an erstem grobem Entwurf.
      - alternates between two sequences to send in states 3+4:
        1. set max frequency to 1410 Hz
        2. set max frequency to 2 Hz, then to 1064 Hz
-     - during states 3+4, replay data from state 1? only stated for Stuxnet 0.5 (sequence C, 9), but would also make sense here
+     - 1.x does __not__ play back fake data – only 0.5 does that! (TKAC 13)
    - sequence C (45-48, 0.5 5-12) – deactivated and incomplete in 1.x
      - attempts to sabotage centrifuges by achieving damaging pressures by modifying valves
      - state machine:
