@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage{xspace}
 
 \title{Stuxnet}
 \subtitle{Kurzpräsentation}
@@ -9,13 +10,122 @@
 
 \begin{document}
 
+\newcommand{\ufsechs}[0]{$\mathrm{UF_6}$\xspace}
+
 \begin{frame}
   \titlepage
 \end{frame}
 
 \begin{frame}
-  \frametitle{Gliederung}
-  \tableofcontents
+  \frametitle{Allgemeines}
+  \begin{itemize}
+    \item Computerwurm
+    \item Gezielter Angriff auf iranische Uran-Anreicherungsanlage
+    \item Geschätzter Entwicklungsaufwand: ca.~10~Entwickler, 6~Monate + Quality Assurance, Testen, etc.
+    \item Testen erfordert Nachbau der Anlage (inkl. echtes Uran)
+    \item Folgerung: Staatliche Angreifer (Annahme: USA)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Urananreicherung}
+  \begin{itemize}
+    \item Gaszentrifugen
+    \item Uranhexafluorid (\ufsechs)
+    \item \ufsechs mit schweren Isotopen sammelt sich außen
+    \item Parallelschaltung Zentrifugen: Besserer Durchsatz
+    \item Reihenschaltung Zentrifugen: Stärkere Anreicherung
+    \item Höhere Frequenzen: Stärkere Anreicherung, aber instabiler
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{1. Angriff}
+  \begin{itemize}
+    \item Manipulation der Ventile an den Zentrifugen
+    \item Überdruck in den Zentrifugen
+    \item Während des Angriffs werden alte Sensordaten abgespielt
+    \item Angriff endet \emph{bevor} irreparabler Schaden entsteht
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{2. Angriff}
+  \begin{itemize}
+    \item Manipulation der Rotorgeschwindigkeit
+    \item Überhöhte, dann viel zu niedrige Frequenz
+    \item Leicht festzustellen (zuhören)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Steuerung der Zentrifugen}
+  \begin{itemize}
+    \item Steuerung durch Programmable Logic Controllers (PLCs)
+      \begin{itemize}
+        \item Programmierbar (Assembler)
+        \item S7-417: Ventile und Drucksensoren
+        \item S7-315: Motoren
+      \end{itemize}
+    \item Controller werden durch Step7-Software kontrolliert + programmiert
+    \item Betrieb von normalen Windows-Rechnern aus
+    \item Aber ohne Verbindung zum Internet, selbst zum Netzwerk – “air gap”
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Infektion und Verbreitung}
+  \begin{itemize}
+    \item Memory Sticks
+      \begin{itemize}
+        \item Autorun.inf (1.001)
+        \item LNK (1.10x)
+        \item Verwendet, um “air gap” zu überbrücken
+        \item Von Subunternehmern eingebracht
+      \end{itemize}
+    \item Netzwerk
+      \begin{itemize}
+        \item WinCC
+        \item Print Spooler
+        \item SMB
+      \end{itemize}
+    \item Step7-Projekte
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Updates}
+  \begin{itemize}
+    \item Command-and-Control-Server
+      \begin{itemize}
+        \item www.mypremierfutbol.com (Malaysia)
+        \item www.todaysfutbol.com (Dänemark)
+      \end{itemize}
+    \item Peer-to-Peer-Netzwerk
+    \item Mailslots
+    \item File shares
+    \item Step7-Projekte
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Charakterisierung}
+  \begin{itemize}
+    \item Stuxnet 0.5
+      \begin{itemize}
+        \item Angriff 1: Hochkompliziert und spezifisch, schwer zu entdecken
+        \item Wenig Verbreitungsmöglichkeiten
+        \item 2007 gemeldet
+        \item 2013 als Vorgänger von Stuxnet erkannt
+      \end{itemize}
+    \item Stuxnet 1.x
+      \begin{itemize}
+        \item Angriff 2: Recht spezifisch, aber eigentlich leicht zu entdecken
+        \item Vielfältige Verbreitungsmöglichkeiten
+        \item 2010 gemeldet, analysiert, bekannt geworden
+        \item Entwickler legten wohl weniger Wert auf Tarnung
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
 \end{document}
