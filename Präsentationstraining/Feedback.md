@@ -1,0 +1,10 @@
+- __Blickkontakt!!__
+- Warum wird Urananreicherung erklärt? „Um den Angriff zu erklären, muss ich aber erst kurz auf die Funktionsweise von Urananreicherung eingehen.“
+- Physikalisch-Chemische Details von UF6 (Isotopgewicht) sind irrelevant, weglassen
+- „1.x“ statt „1.nochwas“
+- Richtiger Abschluss
+- Lautstärke: passt
+- Tempo: An der Grenze, gerade noch nicht *zu* schnell
+  - an komplexen Stellen langsamer werden
+- Medien? Bilder?
+- Nach Template fragen
