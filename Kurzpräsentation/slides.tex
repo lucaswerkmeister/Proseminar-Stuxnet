@@ -18,51 +18,31 @@
 \begin{frame}
   \frametitle{Einführung}
   \begin{itemize}
-    \item Stuxnet: Zwei Versionen
-    \item 0.5: 2007 erstmals gesichtet, erst 2013 als Vorgänger von Stuxnet erkannt
-    \item 1.x: 2009 erstmals gesichtet, Sommer 2010 Beachtung gefunden
-    \item Gleiches Ziel: Angriff von iranischen Urananreicherungs-Anlagen
+    \item Was ist Stuxnet? 0.5, 1.x
+    \item Kurz: Wie funktioniert Urananreicherung? Insbesondere im Iran?
+    \item Stuxnet-Angriffe
+    \item Wie wird die Anlage gesteuert? Wie wird diese Steuerung angegriffen?
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Angriff}
+  \frametitle{IT-Angriffe} % TODO besserer Titel? Schreiben schädlicher PLC-Blöcke ist immer noch IT…
   \begin{itemize}
-    \item Kurze Einführung in Funktionsweise der Urananreicherung
-    \item Besonderheiten der iranischen Urananreicherung
-    \item 1.~Angriff: Ventile
-    \item 2.~Angriff: Rotoren
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Steuerung}
-  \begin{itemize}
-    \item Steuerung der Anlage
-    \item PLCs
-    \item Step7
-    \item Step7-Infektion
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Verbreitung}
-  \begin{itemize}
-    \item Step7-Projekte
-    \item Memory Sticks
-    \item Windows-Netzwerke
-    \item Command and Control
-    \item Peer-to-Peer Updates
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Vertiefung}
-  \begin{itemize}
-    \item Genauere Betrachtung zweier Sicherheitslücken:
+    \item Verbreitung
+      \begin{itemize}
+        \item Step7-Projekte
+        \item Memory Sticks
+        \item Windows-Netzwerke
+      \end{itemize}
+    \item Updates
+      \begin{itemize}
+        \item Command and Control
+        \item Peer-to-Peer Updates
+      \end{itemize}
+    \item Vertiefte Betrachtung:
       \begin{itemize}
         \item CVE-2010-2743: Programmierfehler in Windows
-        \item CVE-2012-3015: Feature als Sicherheitslücke
+        \item CVE-2012-3015: Step7-Feature als Sicherheitslücke
       \end{itemize}
   \end{itemize}
 \end{frame}
@@ -73,7 +53,17 @@
     \item Stuxnet 0.5: Verbreitung ausschließlich über Step7-Infektionen
     \item Stuxnet 1.x: Breite Vielfalt von Verbreitungsmethoden
     \item Einfachere Verbreitung war wohl nicht mehr ausreichend
-    \item Defense in Depth
+    \item \emph{Defense in Depth}-Konzept: Angriff erschweren
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fazit}
+  \begin{itemize}
+    \item Stuxnet 1.x wurde durch \emph{Defense in Depth} zu höherer Aggressivität gezwungen
+    \item Erhöhte Entdeckungsgefahr musste in Kauf genommen werden
+    \item Tatsächlich wurde Stuxnet 1.x recht schnell entdeckt
+    \item Stuxnet 0.5 wurde erst 2013 als Vorgänger von Stuxnet 1.x erkannt
   \end{itemize}
 \end{frame}
 
