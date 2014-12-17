@@ -22,8 +22,6 @@
 \immediate\write\notesfile{30}
 \immediate\write\notesfile{[notes]}
 
-%\renewcommand\note[1]{\immediate\write\notesfile{#1}}
-
 \makeatletter
 % this is pretty bad:
 % 1. it writes '\#' to the file – fix in makefile
@@ -42,6 +40,75 @@
   \titlepage
   \note{Begruessung}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Allgemeines}
+  \begin{itemize}
+    \item Computerwurm, zwei Versionen:
+      \begin{itemize}
+        \item 0.5: 2007-2009
+        \item 1.x: 2010
+      \end{itemize}
+    \item Gezielter Angriff auf iranische Uran-Anreicherungsanlage
+    \item Geschätzter Entwicklungsaufwand: ca.~10~Entwickler, 6~Monate + Quality Assurance, Testen, etc.
+    \item Testen erfordert Nachbau der Anlage (inkl. echtes Uran)
+    \item Folgerung: Staatliche Angreifer (Annahme: USA)
+  \end{itemize}
+  \note{Hinweise (myrtus) erwaehnen, Tasten im Nebel, nicht drauf eingehen}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Urananreicherung}
+  \begin{itemize}
+    \item Gaszentrifugen: Gas mit schwererem Uran sammelt sich außen
+    \item 3 Anschlüsse:
+      \begin{enumerate}
+        \item Feed: Eingang
+        \item Product: Ausgang, angereichert
+        \item Tails: Ausgang, Rest
+      \end{enumerate}
+    \item Parallelschaltung Zentrifugen: Besserer Durchsatz
+    \item Reihenschaltung Zentrifugen: Stärkere Anreicherung
+    \item Höhere Frequenzen: Stärkere Anreicherung, aber instabiler
+  \end{itemize}
+  \note{foo}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Urananreicherung im Iran}
+  \begin{itemize}
+    \item IR-1-Zentrifuge – europäisches Modell der 60er/70er
+      \begin{itemize}
+        \item ``obsolete design that Iran never managed to operate reliably'' (TKaC 5)
+        \item Häufige Ausfälle trotz verringertem Betriebsdruck
+        \item Dafür: Massenproduktion
+      \end{itemize}
+  \end{itemize}
+  \note{Best case: nur halbe theoretische Ausbeute}
+\end{frame}
+
+\begin{frame}
+  \frametitle{1. Angriff}
+  \begin{itemize}
+    \item Manipulation der Ventile an den Zentrifugen
+    \item Überdruck in den Zentrifugen
+    \item Während des Angriffs werden alte Sensordaten abgespielt
+    \item Angriff endet \emph{bevor} irreparabler Schaden entsteht
+  \end{itemize}
+  \note{Dampfkochtopf-Analogie?}
+\end{frame}
+
+\begin{frame}
+  \frametitle{2. Angriff}
+  \begin{itemize}
+    \item Manipulation der Rotorgeschwindigkeit
+    \item Überhöhte, dann viel zu niedrige Frequenz
+    \item Leicht festzustellen (zuhören)
+  \end{itemize}
+  \note{Es werden NICHT alte Sensordaten abgespielt!}
+\end{frame}
+
+
 
 \begin{frame}
   \frametitle{Quellen}
