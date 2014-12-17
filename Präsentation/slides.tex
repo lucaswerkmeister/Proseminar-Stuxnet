@@ -1,0 +1,46 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{xspace}
+
+\usepackage{templates/beamerthemekit}
+
+\titleimage{AhmadinejadNatanz_cropped_caption}
+
+\title{Stuxnet}
+\subtitle{Proseminar: Desaster in der Software-Sicherheit}
+\author{Lucas Werkmeister}
+\date{Januar / Februar 2015}
+
+\begin{document}
+
+\newwrite\notesfile
+\immediate\openout\notesfile=slides.pdfpc
+\immediate\write\notesfile{[file]}
+\immediate\write\notesfile{slides.pdf}
+\immediate\write\notesfile{[duration]}
+\immediate\write\notesfile{5}
+\immediate\write\notesfile{[notes]}
+
+%\renewcommand\note[1]{\immediate\write\notesfile{#1}}
+
+\makeatletter
+% this is pretty bad:
+% 1. it writes '\#' to the file – fix in makefile
+% 2. umlauts are not supported
+% 3. it results in one 'undefined' error per frame
+% 4. multiple notes are not supported ('fix' in makefile: replace LF with line feed)
+% but it's good enough for now.
+\def\beamer@framenotesbegin{%
+  \write\notesfile{\#\#\#\thepage}%
+  \write\notesfile{\beamer@notes}%
+  \let\beamer@notes\undefined%
+}
+\makeatother
+
+\begin{frame}
+  \titlepage
+  \note{Begruessung}
+\end{frame}
+
+\immediate\closeout\notesfile
+\end{document}
