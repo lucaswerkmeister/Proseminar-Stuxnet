@@ -95,17 +95,21 @@
     \item Während des Angriffs werden alte Sensordaten abgespielt
     \item Angriff endet \emph{bevor} irreparabler Schaden entsteht
   \end{itemize}
-  \note{Dampfkochtopf-Analogie?}
+  \note{Dampfkochtopf-Analogie?LF21 Sekunden replayLFbei Pressure controllers, die Dump Line kontrollieren, wird Linearisierungs-Kalibrierung ueberschossen}
 \end{frame}
 
 \begin{frame}
   \frametitle{2. Angriff}
   \begin{itemize}
     \item Manipulation der Rotorgeschwindigkeit
-    \item Überhöhte, dann viel zu niedrige Frequenz
-    \item Leicht festzustellen (zuhören)
+      \begin{itemize}
+        \item Normale Betriebsgeschwindigkeit: 63000rpm (1050Hz)
+        \item Erhöhte Geschwindigkeit: 84600rpm (1410Hz)
+        \item Verringerte Geschwindigkeit: 120rpm (2Hz)
+      \end{itemize}
+    \item Leicht festzustellen (zuhören) – insbesondere, da synchronisiert
   \end{itemize}
-  \note{Es werden NICHT alte Sensordaten abgespielt!}
+  \note{Es werden NICHT alte Sensordaten abgespielt! Unnoetig: Konst. Geschw. erwartet, ausserdem SCADA liest Daten aus Speicher, nicht direkt aus Geraet.LFAngriff wurde vmtl. via WinCC synchronisiert, noch leichter zu hoeren}
 \end{frame}
 
 
