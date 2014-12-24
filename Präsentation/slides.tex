@@ -148,10 +148,34 @@
         \item S7-417: Ventile und Drucksensoren (1.~Angriff)
         \item S7-315: Rotoren (2.~Angriff)
       \end{itemize}
-    \item PLCs werden mit \emph{Step 7} programmiert
+    \item PLCs werden mit \emph{Step7} programmiert
   \end{itemize}
   \note{SCADA: Nur ein unwichtiges Farsi-Label gesehen}
 \end{frame}
+
+\section{IT-Angriffe}
+
+\subsection{Verbreitung}
+
+\begin{frame}
+  \frametitle{Verbreitung}
+  \begin{itemize}
+    \item Step7-Projekte: Infektion der Step7-Installation beim Öffnen von infizierter Datei
+    \item Memory Sticks:
+      \begin{itemize}
+        \item \texttt{autorun.inf}: Infektion von Windows bei Autorun oder manuellem Öffnen (Version~1.001)
+        \item \texttt{.lnk}-Dateien: Infektion von Windows beim Öffnen im Explorer (Versionen~1.10x)
+      \end{itemize}
+    \item Netzwerk
+      \begin{itemize}
+        \item WinCC: Infektion des Servers, wenn möglich (Versionen~1.x)
+        \item SMB: Infektion des Remote-Systems, wenn möglich (Versionen~1.x)
+        \item Print Spooler: Infektion des Remote-Systems, wenn möglich (Versionen~1.x)
+      \end{itemize}
+  \end{itemize}
+  \note{Beachte: 0.5 nur Step7}
+\end{frame}
+
 
 
 \section{Abschluss}
