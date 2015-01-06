@@ -244,6 +244,21 @@ stringstyle=\color{cyan}
   \note{echter code: bessere fehlerbehandlungLFsizeof(table)/sizeof(table[0])}
 \end{frame}
 
+\subsection{CVE-2012-3015}
+
+\begin{frame}
+  \frametitle{CVE-2012-3015 Step7-Infektion}
+  % TODO: Probably needs an improvement, a collection of quotes isn’t very interesting
+  % Do we even need to look at this in detail at all? What’s the takeaway?
+  \begin{itemize}
+    \item ``STEP7 contains a DLL loading mechanism that can be circumvented by attackers to execute arbitrary code.'' (SSA-110665)
+    \item ``Untrusted search path vulnerability […] allows local users to gain privileges via a Trojan horse DLL in a STEP7 project folder.'' (CVE-2012-3015)
+    \item ``The application searches for critical resources using an externally-supplied search path that can point to resources that are not under the application's direct control.'' (CWE-426)
+    \item Fix: ``The updates implement a mechanism that rejects DLLs in the STEP7 project folders which contain executable code, thus preventing unintended execution of unchecked code.'' (SSA-110665)
+  \end{itemize}
+  \note{CWE = Common Weakness Enumeration}
+\end{frame}
+
 
 
 \section{Abschluss}
@@ -257,7 +272,10 @@ stringstyle=\color{cyan}
     \item Dossier: Symantec Security Response, W32.Stuxnet Dossier, \url{https://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/w32_stuxnet_dossier.pdf}
     \item 0.5: Symantec Security Response, Stuxnet 0.5: The Missing Link, \url{https://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/stuxnet_0_5_the_missing_link.pdf}
     \item TKaC: Ralph Langner, To Kill a Centrifuge, \url{http://www.langner.com/en/wp-content/uploads/2013/11/To-kill-a-centrifuge.pdf}
-    \item CVE-2010-2743: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2743
+    \item CVE-2010-2743: \url{https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2743}
+    \item CVE-2012-3015: \url{https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3015}
+    \item CWE-426: \url{http://cwe.mitre.org/data/definitions/426.html}
+    \item SSA-110665: \url{https://www.siemens.com/innovation/pool/de/forschungsfelder/siemens_security_advisory_ssa-110665.pdf}
     \item Diese Folien sind auch verfügbar unter \url{https://github.com/lucaswerkmeister/Proseminar-Stuxnet}.
   \end{itemize}
   \note{Weg damit}
