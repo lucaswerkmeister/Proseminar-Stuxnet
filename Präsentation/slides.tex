@@ -2,8 +2,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage{xspace}
 \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{inconsolata}
 
 \usepackage{templates/beamerthemekit}
+
+\lstdefinestyle{c}{language=C,
+basicstyle=\footnotesize\ttfamily,
+%commentstyle=\color{green},
+%identifierstyle=\color{blue},
+keywordstyle=\color{purple},
+stringstyle=\color{cyan}
+}
 
 \titleimage{AhmadinejadNatanz_cropped_caption}
 
@@ -196,6 +207,43 @@
   \note{Domains mittlerweile alle Besitzer gewechseltLFRPC = Remote Procedure Call}
 \end{frame}
 
+\subsection{CVE-2010-2743}
+
+\begin{frame}
+  \frametitle{CVE-2010-2743 Local Privilege Escalation}
+  \begin{itemize}
+    \item \texttt{win32k.sys} lädt Keyboard-Layouts, läuft im Kernel-Mode
+    \item Ein Index in eine Funktionspointer-Tabelle wird nicht korrekt verifiziert
+    \item Stuxnet weist Windows an, eine nicht wohlgeformte Keyboard-Layout-Datei zu laden
+    \item Dadurch wird Stuxnet-Code im Kernel-Mode ausgeführt
+  \end{itemize}
+  \note{0-day-exploit}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Function Table}
+  \lstinputlisting[language=C,style=c]{../functionPointerDemo/01-harmless.c}
+  \note{Was passiert mit Index 2?}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Absturz}
+  \lstinputlisting[language=C,style=c]{../functionPointerDemo/02-broken.c}
+  \note{Segfault.LFnm zeigt: table ganz am ende, danach nur __TMC_END__.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Infektion}
+  \lstinputlisting[language=C,style=c]{../functionPointerDemo/03-infected.c}
+  \note{nm zeigt: table1, table2, __TMC_END__.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Absicherung}
+  \lstinputlisting[language=C,style=c]{../functionPointerDemo/04-protected.c}
+  \note{echter code: bessere fehlerbehandlungLFsizeof(table)/sizeof(table[0])}
+\end{frame}
+
 
 
 \section{Abschluss}
@@ -209,6 +257,7 @@
     \item Dossier: Symantec Security Response, W32.Stuxnet Dossier, \url{https://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/w32_stuxnet_dossier.pdf}
     \item 0.5: Symantec Security Response, Stuxnet 0.5: The Missing Link, \url{https://www.symantec.com/content/en/us/enterprise/media/security_response/whitepapers/stuxnet_0_5_the_missing_link.pdf}
     \item TKaC: Ralph Langner, To Kill a Centrifuge, \url{http://www.langner.com/en/wp-content/uploads/2013/11/To-kill-a-centrifuge.pdf}
+    \item CVE-2010-2743: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2743
     \item Diese Folien sind auch verfügbar unter \url{https://github.com/lucaswerkmeister/Proseminar-Stuxnet}.
   \end{itemize}
   \note{Weg damit}
