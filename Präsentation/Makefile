@@ -14,7 +14,8 @@ slides.pdf: slides.tex
 #	-$(LATEX) $< 2>&1 > /dev/null # include glossary in document
 #	-makeglossaries $(@:.pdf=) # include glossary cross-refs in glossary
 	-$(LATEX) $< # add glossary to TOC
-	sed -i -e 's \\# # g' -e 's LF \n g' slides.pdfpc
+	sed -i "s/\\\\\\\\/\n/g" slides.pdfpc
+	sed -i "s/\\\\par/\n\n/g" slides.pdfpc
 
 clean-slides: clean-slides-build
 	-$(RM) slides.pdf

@@ -7,6 +7,7 @@
 \usepackage{inconsolata}
 
 \usepackage{templates/beamerthemekit}
+\usepackage{pdfpcnotes}
 
 \lstdefinestyle{c}{language=C,
 basicstyle=\footnotesize\ttfamily,
@@ -25,36 +26,14 @@ stringstyle=\color{cyan}
 
 \begin{document}
 
-\newwrite\notesfile
-\immediate\openout\notesfile=slides.pdfpc
-\immediate\write\notesfile{[file]}
-\immediate\write\notesfile{slides.pdf}
-\immediate\write\notesfile{[duration]}
-\immediate\write\notesfile{30}
-\immediate\write\notesfile{[notes]}
-
-\makeatletter
-% this is pretty bad:
-% 1. it writes '\#' to the file – fix in makefile
-% 2. umlauts are not supported
-% 3. it results in one 'undefined' error per frame
-% 4. multiple notes are not supported ('fix' in makefile: replace LF with line feed)
-% but it's good enough for now.
-\def\beamer@framenotesbegin{%
-  \write\notesfile{\#\#\#\thepage}%
-  \write\notesfile{\beamer@notes}%
-  \let\beamer@notes\undefined%
-}
-\makeatother
-
 \begin{frame}
   \titlepage
-  \note{Begruessung}
+  \pnote{Begruessung}
 \end{frame}
 
 %\begin{frame}
 %  \tableofcontents
-%  \note{Gliederung}
+%  \pnote{Gliederung}
 %\end{frame}
 
 \section{Einführung}
@@ -74,7 +53,7 @@ stringstyle=\color{cyan}
     \item Testen erfordert Nachbau der Anlage (inkl. echtes Uran)
     \item Folgerung: Staatliche Angreifer (Annahme: USA)
   \end{itemize}
-  \note{Hinweise (myrtus) erwaehnen, Tasten im Nebel, nicht drauf eingehen}
+  \pnote{Hinweise (myrtus) erwaehnen, Tasten im Nebel, nicht drauf eingehen}
 \end{frame}
 
 \subsection{Urananreicherung}
@@ -94,7 +73,7 @@ stringstyle=\color{cyan}
     \item Reihenschaltung Zentrifugen: Stärkere Anreicherung
     \item Höhere Frequenzen: Stärkere Anreicherung, aber instabiler
   \end{itemize}
-  \note{UF6 wird bei 100mbar fest (TKaC 7)}
+  \pnote{UF6 wird bei 100mbar fest (TKaC 7)}
 \end{frame}
 
 \section{Physische Angriffe}
@@ -111,7 +90,7 @@ stringstyle=\color{cyan}
         \item Dafür: Massenproduktion
       \end{itemize}
   \end{itemize}
-  \note{Best case: nur halbe theoretische Ausbeute}
+  \pnote{Best case: nur halbe theoretische Ausbeute}
 \end{frame}
 
 \subsection{1. Angriff}
@@ -124,7 +103,7 @@ stringstyle=\color{cyan}
     \item Während des Angriffs werden alte Sensordaten abgespielt
     \item Angriff endet \emph{bevor} irreparabler Schaden entsteht
   \end{itemize}
-  \note{Dampfkochtopf-Analogie?LF21 Sekunden replayLFbei Pressure controllers, die Dump Line kontrollieren, wird Linearisierungs-Kalibrierung ueberschossenLFErinnerung: 2-5mbar Betriebsdruck, fest bei 100mbar}
+  \pnote{Dampfkochtopf-Analogie?\\21 Sekunden replay\\bei Pressure controllers, die Dump Line kontrollieren, wird Linearisierungs-Kalibrierung ueberschossen\\Erinnerung: 2-5mbar Betriebsdruck, fest bei 100mbar}
 \end{frame}
 
 \subsection{2. Angriff}
@@ -140,7 +119,7 @@ stringstyle=\color{cyan}
       \end{itemize}
     \item Leicht festzustellen (zuhören) – insbesondere, wenn synchronisiert
   \end{itemize}
-  \note{Es werden NICHT alte Sensordaten abgespielt! Unnoetig: Konst. Geschw. erwartet, ausserdem SCADA liest Daten aus Speicher, nicht direkt aus Geraet.LFAngriff wurde via WinCC synchronisiert (unklar ob im Iran verwendet), noch leichter zu hoeren}
+  \pnote{Es werden NICHT alte Sensordaten abgespielt! Unnoetig: Konst. Geschw. erwartet, ausserdem SCADA liest Daten aus Speicher, nicht direkt aus Geraet.\\Angriff wurde via WinCC synchronisiert (unklar ob im Iran verwendet), noch leichter zu hoeren}
 \end{frame}
 
 \subsection{Steuerung der Anlage}
@@ -161,7 +140,7 @@ stringstyle=\color{cyan}
       \end{itemize}
     \item PLCs werden mit \emph{Step7} programmiert
   \end{itemize}
-  \note{SCADA: Nur ein unwichtiges Farsi-Label gesehen}
+  \pnote{SCADA: Nur ein unwichtiges Farsi-Label gesehen}
 \end{frame}
 
 \section{IT-Angriffe}
@@ -184,7 +163,7 @@ stringstyle=\color{cyan}
         \item Print Spooler: Infektion des Remote-Systems, wenn möglich (Versionen~1.x)
       \end{itemize}
   \end{itemize}
-  \note{Beachte: 0.5 nur Step7}
+  \pnote{Beachte: 0.5 nur Step7}
 \end{frame}
 
 \subsection{Updates}
@@ -204,7 +183,7 @@ stringstyle=\color{cyan}
         \item 1.x: RPC server + client
       \end{itemize}
   \end{itemize}
-  \note{Domains mittlerweile alle Besitzer gewechseltLFRPC = Remote Procedure Call}
+  \pnote{Domains mittlerweile alle Besitzer gewechselt\\RPC = Remote Procedure Call}
 \end{frame}
 
 \subsection{CVE-2010-2743}
@@ -217,31 +196,31 @@ stringstyle=\color{cyan}
     \item Stuxnet weist Windows an, eine nicht wohlgeformte Keyboard-Layout-Datei zu laden
     \item Dadurch wird Stuxnet-Code im Kernel-Mode ausgeführt
   \end{itemize}
-  \note{0-day-exploitLFCVE = Common Vulnerabilities and Exposures}
+  \pnote{0-day-exploit\\CVE = Common Vulnerabilities and Exposures}
 \end{frame}
 
 \begin{frame}
   \frametitle{Function Table}
   \lstinputlisting[language=C,style=c]{../functionPointerDemo/01-harmless.c}
-  \note{Was passiert mit Index 2?}
+  \pnote{Was passiert mit Index 2?}
 \end{frame}
 
 \begin{frame}
   \frametitle{Absturz}
   \lstinputlisting[language=C,style=c]{../functionPointerDemo/02-broken.c}
-  \note{Segfault.LFnm zeigt: table ganz am ende, danach nur __TMC_END__.}
+  \pnote{Segfault.\\nm zeigt: table ganz am ende, danach nur __TMC_END__.}
 \end{frame}
 
 \begin{frame}
   \frametitle{Infektion}
   \lstinputlisting[language=C,style=c]{../functionPointerDemo/03-infected.c}
-  \note{nm zeigt: table1, table2, __TMC_END__.}
+  \pnote{nm zeigt: table1, table2, __TMC_END__.}
 \end{frame}
 
 \begin{frame}
   \frametitle{Absicherung}
   \lstinputlisting[language=C,style=c]{../functionPointerDemo/04-protected.c}
-  \note{echter code: bessere fehlerbehandlungLFsizeof(table)/sizeof(table[0])}
+  \pnote{echter code: bessere fehlerbehandlung\\sizeof(table)/sizeof(table[0])}
 \end{frame}
 
 \subsection{CVE-2012-3015}
@@ -256,7 +235,7 @@ stringstyle=\color{cyan}
     \item ``The application searches for critical resources using an externally-supplied search path that can point to resources that are not under the application's direct control.'' (CWE-426)
     \item Fix: ``The updates implement a mechanism that rejects DLLs in the STEP7 project folders which contain executable code, thus preventing unintended execution of unchecked code.'' (SSA-110665)
   \end{itemize}
-  \note{CWE = Common Weakness Enumeration}
+  \pnote{CWE = Common Weakness Enumeration}
 \end{frame}
 
 
@@ -278,8 +257,7 @@ stringstyle=\color{cyan}
     \item SSA-110665: \url{https://www.siemens.com/innovation/pool/de/forschungsfelder/siemens_security_advisory_ssa-110665.pdf}
     \item Diese Folien sind auch verfügbar unter \url{https://github.com/lucaswerkmeister/Proseminar-Stuxnet}.
   \end{itemize}
-  \note{Weg damit}
+  \pnote{Weg damit}
 \end{frame}
 
-\immediate\closeout\notesfile
 \end{document}
