@@ -6,7 +6,7 @@ void printB() { printf("b\n"); }
 void printC() { printf("c\n"); }
 
 void (*table1[2]) () = { printA, printB };
-void (*table2[1]) () = { printC };
+void (*table2[1]) () = { printC }; // Eine weitere Tabelle
 
 void decide(int which) {
   

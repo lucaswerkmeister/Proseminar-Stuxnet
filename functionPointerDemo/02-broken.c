@@ -13,4 +13,4 @@ void decide(int which) {
   table[which]();
 }
 
-void main() { decide(2); }
+void main() { decide(2); } // Element 2 gibt es nicht!

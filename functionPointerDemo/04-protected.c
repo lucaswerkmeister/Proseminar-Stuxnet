@@ -9,7 +9,7 @@ void (*table1[2]) () = { printA, printB };
 void (*table2[1]) () = { printC };
 
 void decide(int which) {
-  if (which < 0 || which >= 2) { exit(1); }
+  if (which < 0 || which >= 2) { exit(1); } // Boundary check
   table1[which]();
 }
 
