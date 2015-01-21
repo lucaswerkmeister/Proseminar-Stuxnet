@@ -1,7 +1,6 @@
 - Eigen geht, schnell funzen
 - Vorher probieren
 - Oder zentral
-- Urananreicherung zusammen
 - 1. Angriff: Stuxnet 0.5
 - Steuerung vor Angriffen
 - Wort Angriff?
