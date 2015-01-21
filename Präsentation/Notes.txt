@@ -1,7 +1,6 @@
 - Eigen geht, schnell funzen
 - Vorher probieren
 - Oder zentral
-- Steuerung vor Angriffen
 - Wort Angriff?
 - Struktur Schaubild
 - Was sind Mailslots? RPC?

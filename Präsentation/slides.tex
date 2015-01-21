@@ -78,6 +78,27 @@ stringstyle=\color{cyan}
 
 \section{Physische Angriffe}
 
+\subsection{Steuerung der Anlage}
+
+\begin{frame}
+  \frametitle{Steuerung der Anlage}
+  \begin{itemize}
+    \item Anlagensteuerung durch SCADA-Software, z.~B. WinCC
+    \item Irans SCADA-Software: Unbekannt, offenbar Eigenbau
+      \begin{itemize}
+        \item ``quite amateurish by Western standards […] custom-built […] little familiarity with contemporary SCADA software design'' (TKaC 27)
+        \item Aber durchgehend Englisch, selbst mit US-Datumsformat
+      \end{itemize}
+    \item Direkte Steuerung erfolgt über \emph{Programmable Logic Controllers}~(PLCs)
+      \begin{itemize}
+        \item S7-417: Ventile und Drucksensoren (1.~Angriff)
+        \item S7-315: Rotoren (2.~Angriff)
+      \end{itemize}
+    \item PLCs werden mit \emph{Step7} programmiert
+  \end{itemize}
+  \pnote{SCADA: Nur ein unwichtiges Farsi-Label gesehen}
+\end{frame}
+
 \subsection{1. Angriff: Stuxnet 0.5}
 
 \begin{frame}
@@ -105,27 +126,6 @@ stringstyle=\color{cyan}
     \item Leicht festzustellen (zuhören) – insbesondere, wenn synchronisiert
   \end{itemize}
   \pnote{Es werden NICHT alte Sensordaten abgespielt! Unnoetig: Konst. Geschw. erwartet, ausserdem SCADA liest Daten aus Speicher, nicht direkt aus Geraet.\\Angriff wurde via WinCC synchronisiert (unklar ob im Iran verwendet), noch leichter zu hoeren}
-\end{frame}
-
-\subsection{Steuerung der Anlage}
-
-\begin{frame}
-  \frametitle{Steuerung der Anlage}
-  \begin{itemize}
-    \item Anlagensteuerung durch SCADA-Software, z.~B. WinCC
-    \item Irans SCADA-Software: Unbekannt, offenbar Eigenbau
-      \begin{itemize}
-        \item ``quite amateurish by Western standards […] custom-built […] little familiarity with contemporary SCADA software design'' (TKaC 27)
-        \item Aber durchgehend Englisch, selbst mit US-Datumsformat
-      \end{itemize}
-    \item Direkte Steuerung erfolgt über \emph{Programmable Logic Controllers}~(PLCs)
-      \begin{itemize}
-        \item S7-417: Ventile und Drucksensoren (1.~Angriff)
-        \item S7-315: Rotoren (2.~Angriff)
-      \end{itemize}
-    \item PLCs werden mit \emph{Step7} programmiert
-  \end{itemize}
-  \pnote{SCADA: Nur ein unwichtiges Farsi-Label gesehen}
 \end{frame}
 
 \section{IT-Angriffe}
