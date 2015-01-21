@@ -212,15 +212,12 @@ stringstyle=\color{cyan}
 
 \begin{frame}
   \frametitle{CVE-2012-3015 Step7-Infektion (alle Stuxnet-Versionen)}
-  % TODO: Probably needs an improvement, a collection of quotes isn’t very interesting
-  % Do we even need to look at this in detail at all? What’s the takeaway?
   \begin{itemize}
-    \item ``STEP7 contains a DLL loading mechanism that can be circumvented by attackers to execute arbitrary code.'' (SSA-110665)
-    \item ``Untrusted search path vulnerability […] allows local users to gain privileges via a Trojan horse DLL in a STEP7 project folder.'' (CVE-2012-3015)
-    \item ``The application searches for critical resources using an externally-supplied search path that can point to resources that are not under the application's direct control.'' (CWE-426)
-    \item Fix: ``The updates implement a mechanism that rejects DLLs in the STEP7 project folders which contain executable code, thus preventing unintended execution of unchecked code.'' (SSA-110665)
+    \item Step7 lädt DLLs; Search Path kann in der Config-Datei manipuliert werden, um DLLs innerhalb des Projektordners zu enthalten
+    \item Verschiedene Funktionen (z.~B. Blöcke schreiben und lesen) werden von Stuxnet-DLL bereitgestellt
+    \item Behoben dadurch, dass DLLs in Projektordnern nicht verwendet werden (SSA-110665)
   \end{itemize}
-  \pnote{CWE = Common Weakness Enumeration}
+  \pnote{Untrusted Search Path Vulnerability}
 \end{frame}
 
 \section{Vergleich}
