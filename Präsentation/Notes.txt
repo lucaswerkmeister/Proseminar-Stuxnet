@@ -3,7 +3,6 @@
 - Oder zentral
 - Wort Angriff?
 - Struktur Schaubild
-- Was sind Mailslots? RPC?
 - Priv Esc 0.5 oder 1.x?
 - Code Diff hervorheben (Zeilen hervorheben?)
 - Step7 welches Stuxnet
