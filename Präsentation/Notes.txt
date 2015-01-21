@@ -3,7 +3,6 @@
 - Oder zentral
 - Wort Angriff?
 - Struktur Schaubild
-- Priv Esc 0.5 oder 1.x?
 - Code Diff hervorheben (Zeilen hervorheben?)
 - Step7 welches Stuxnet
 - Step7 zusammenstreichen, keine wörtlichen Zitate
