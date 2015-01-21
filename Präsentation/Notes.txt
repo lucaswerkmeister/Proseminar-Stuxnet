@@ -1,0 +1,19 @@
+- Eigen geht, schnell funzen
+- Vorher probieren
+- Oder zentral
+- Urananreicherung zusammen
+- 1. Angriff: Stuxnet 0.5
+- Steuerung vor Angriffen
+- Wort Angriff?
+- Struktur Schaubild
+- Was sind Mailslots? RPC?
+- Priv Esc 0.5 oder 1.x?
+- Code Diff hervorheben (Zeilen hervorheben?)
+- Step7 welches Stuxnet
+- Step7 zusammenstreichen, keine wörtlichen Zitate
+- Quellenangabe unter Bildern
+- Vergleich zusammenfassen
+- DiD weniger Militär (verbal)
+- Nach DiD: Eine Folie
+- Wireshark-Beispiel für einfachere Erkennung
+- Timeline für Abschluss
