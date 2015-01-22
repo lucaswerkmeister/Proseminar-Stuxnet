@@ -3,4 +3,3 @@
 - Oder zentral
 - Wort Angriff?
 - Struktur Schaubild
-- Wireshark-Beispiel für einfachere Erkennung
