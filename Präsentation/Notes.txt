@@ -3,6 +3,5 @@
 - Oder zentral
 - Wort Angriff?
 - Struktur Schaubild
-- DiD weniger Militär (verbal)
 - Nach DiD: Eine Folie
 - Wireshark-Beispiel für einfachere Erkennung
