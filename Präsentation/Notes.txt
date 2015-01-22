@@ -3,5 +3,4 @@
 - Oder zentral
 - Wort Angriff?
 - Struktur Schaubild
-- Nach DiD: Eine Folie
 - Wireshark-Beispiel für einfachere Erkennung
