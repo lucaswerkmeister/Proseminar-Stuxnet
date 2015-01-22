@@ -5,6 +5,8 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{inconsolata}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
 
 \usepackage{templates/beamerthemekit}
 \usepackage{pdfpcnotes}
@@ -304,22 +306,45 @@ stringstyle=\color{cyan}
 
 \begin{frame}
   \frametitle{Erfolg von Defense in Depth}
-  \begin{itemize}
-    \item Stuxnet 0.5\dots
-      \begin{itemize}
-        \item Mindestens ab November 2005 in Entwicklung
-        \item Mindestens ab November 2007 ``in freier Wildbahn'' (bei Malware-Scanning-Service hochgeladen)
-        \item Wird zum 4. Juli 2009 inaktiv
-        \item Erst 2013 als Vorgänger von Stuxnet erkannt
-      \end{itemize}
-    \item Stuxnet 1.x\dots
-      \begin{itemize}
-        \item Ab Juni 2009 im Umlauf
-        \item Version mit signiertem Treiber ab Januar 2010 im Umlauf
-        \item Juni 2010 entdeckt
-        \item Juli-September 2010 bekämpft
-      \end{itemize}
-  \end{itemize}
+  \centering
+  \resizebox{!}{0.75\textheight}{
+    \begin{tikzpicture}[]
+      \draw (0,0) -- (0,120/12);
+      
+      \foreach \x in {23, 47, 67.13, 108, 66, 72, 78, 81, 102.8}{
+        \draw (3pt,\x/12) -- (-3pt,\x/12);
+      }
+      
+      \draw (0,0/12) node[left=3pt] { 0.5 };
+      \draw (0,23/12) node[left=3pt] { in Entwicklung } node[right=3pt] { Nov. 2005 };
+      \draw (0,47/12) node[left=3pt] { in freier Wildbahn } node[right=3pt] { Nov. 2007 };
+      \draw (0,67.13/12) node[left=3pt] { inaktiv } node[right=3pt] { 4. Juli 2009 };
+      \draw (0,108/12) node[left=3pt] { entdeckt } node[right=3pt] { 2013 };
+
+      \draw [orange, line width = 2pt] (0,67.13/12) -- (0,108/12);
+      \fill [red, path fading = south] (-1.25pt,40/12) -- (-1.25pt,47/12) -- (1.25pt,47/12) -- (1.25pt,40/12) -- cycle;
+      \draw [red, line width = 2.5pt] (0,47/12) -- (0,67.13/12);
+    \end{tikzpicture}
+  }
+  \resizebox{!}{0.75\textheight}{
+    \begin{tikzpicture}[]
+      \draw (0,0) -- (0,120/12);
+      
+      \foreach \x in {23, 47, 67.13, 108, 66, 72, 78, 81, 102.8}{
+        \draw (3pt,\x/12) -- (-3pt,\x/12);
+      }
+      
+      \draw (0,0/12) node[right=3pt] { 1.x };
+      \draw (0,66/12) node[right=3pt] { im Umlauf } node[left=3pt] { Juni 2009 };
+      \draw (0,72/12) node[right=3pt] { signierter Treiber } node[left=3pt] { Januar 2010 };
+      \draw (0,78/12) node[right=3pt] { entdeckt } node[left=3pt] { Juni 2010 };
+      %\draw (0,79/12) node[right=3pt] { mehr Signaturen } node[left=3pt] { Juli 2010 };
+      \draw (0,81/12) node[right=3pt] { beendet } node[left=3pt] { September 2010 };
+      \draw (0,102.8/12) node[right=3pt] { inaktiv } node[left=3pt] { 24. Juni 2012 };
+      
+      \draw [red, line width = 2.5pt] (0,66/12) -- (0,81/12);
+    \end{tikzpicture}
+  }
   \pnote{2005: Domain registriert\\Beachte: 1.x vor Entdeckung im Umlauf, 2007 vmtl zu spät}
 \end{frame}
 
