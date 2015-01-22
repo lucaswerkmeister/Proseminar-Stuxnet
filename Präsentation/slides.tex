@@ -222,40 +222,39 @@ stringstyle=\color{cyan}
 
 \section{Vergleich}
 
-\subsection{Stuxnet 0.5}
+\subsection{Stuxnet 0.5 und 1.x: Verbreitung}
 
 \begin{frame}
-  \frametitle{Stuxnet 0.5}
+  \frametitle{Stuxnet 0.5 und 1.x: Verbreitung}
   \begin{itemize}
-    \item Sehr zielgerichteter und komplexer Angriff
-    \item Sehr eingeschränkte Verbreitung
+    \item Stuxnet 0.5
       \begin{itemize}
-        \item Ausschließlich Step7-Infektionen
+        %\item Sehr zielgerichteter und komplexer Angriff
+        \item Sehr eingeschränkte Verbreitung: Ausschließlich Step7-Infektionen
+      \end{itemize}
+    \item Stuxnet 1.x
+      \begin{itemize}
+        %\item Einfacherer Angriff
+        \item Breite Vielfalt an Verbreitungsmethoden, einschließlich 4~Zero-Day-Exploits
+        \item Größerer Aufwand, höheres Entdeckungsrisiko; warum?
       \end{itemize}
   \end{itemize}
-  \begin{figure}[p]
-    \centering
-    \includegraphics[width=0.8\textwidth]{../Evolution_exploits.pdf}
-    
-    \tiny{Quelle: Symantec Security Response, Stuxnet 0.5: The Missing Link, S.~2}
-  \end{figure}
-\end{frame}
-
-\subsection{Stuxnet 1.x}
-
-\begin{frame}
-  \frametitle{Stuxnet 1.x}
-  \begin{itemize}
-    \item Einfacherer Angriff
-    \item Breite Vielfalt an Verbreitungsmethoden, einschließlich 4~Zero-Day-Exploits
-    \item Größerer Aufwand, höheres Entdeckungsrisiko; warum?
-  \end{itemize}
-  \begin{figure}[p]
-    \centering
-    \includegraphics[width=0.5\textwidth]{../Evolution_replication.pdf}
-    
-    \tiny{Quelle: Symantec Security Response, Stuxnet 0.5: The Missing Link, S.~2}
-  \end{figure}
+  \only<1>{
+    \begin{figure}[p]
+      \centering
+      \includegraphics[height=0.35\textheight]{../Evolution_exploits.pdf}
+      
+      \tiny{Quelle: Symantec Security Response, Stuxnet 0.5: The Missing Link, S.~2}
+    \end{figure}
+  }
+  \only<2>{
+    \begin{figure}[p]
+      \centering
+      \includegraphics[height=0.35\textheight]{../Evolution_replication.pdf}
+      
+      \tiny{Quelle: Symantec Security Response, Stuxnet 0.5: The Missing Link, S.~2}
+    \end{figure}
+  }
 \end{frame}
 
 \subsection{Defense in Depth}
