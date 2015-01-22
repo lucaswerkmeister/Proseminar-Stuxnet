@@ -1,5 +1,2 @@
-- Eigen geht, schnell funzen
-- Vorher probieren
-- Oder zentral
 - Wort Angriff?
 - Struktur Schaubild
