@@ -13,7 +13,7 @@ document.pdf: document.tex
 #	-makeglossaries $(@:.pdf=) # initial glossary
 #	-$(LATEX) $< 2>&1 > /dev/null # include glossary in document
 #	-makeglossaries $(@:.pdf=) # include glossary cross-refs in glossary
-	-$(LATEX) $< # add glossary to TOC
+	$(LATEX) $< # add glossary to TOC
 
 show: document.pdf
 	evince document.pdf
