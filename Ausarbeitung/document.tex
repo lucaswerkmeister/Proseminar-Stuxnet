@@ -59,4 +59,21 @@ Hätten die Stuxnet-Autoren den ersten Angriff ganz aus Stuxnet 1.x entfernt,
 so wäre die Verbindung zwischen den beiden Versionen vermutlich nie aufgefallen,
 da sie ansonsten nur noch die Verbreitung über Step7 gemein haben.
 
+\subsection{1. Angriff}
+
+Der erste Angriff manipuliert die Ventile an den Zentrifugen so,
+dass $\mathrm{UH}_6$ zwar ein-, aber nicht mehr abfließen kann.
+Dadurch steigt der Druck in den Zentrifugen.
+Um dies vor den Operatoren der Anlage zu verbergen,
+werden alte Sensordaten abgespielt, die Stuxnet vor Beginn des Angriffs aufzeichnet.
+
+Würde Stuxnet nun nichts weiter tun, so würden die Zentrifugen durch den steigenden Druck schließlich zerstört werden.
+Da aber ein Controller sehr viele Zentrifugen regelt (s.~o.), würde dies für viele Zentrifugen fast zeitgleich geschehen;
+dieses abnormale Verhalten würde auffallen und Stuxnet in einer Post-Mortem-Analyse vermutlich enttarnt werden.
+Stuxnet bricht deshalb den Angriff nach einer Weile ab.
+Dadurch verursacht dieser Angriff eine höhere Belastung der Anlage,
+die durch eine höhere Ausfallrate der Zentrifugen langfristig den gleichen Schaden verursacht,
+aber weniger auffällig ist und Stuxnet daher nicht enttarnt.
+
+
 \end{document}
