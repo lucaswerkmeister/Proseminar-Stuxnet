@@ -91,6 +91,23 @@ Dies, zusammen mit der Tatsache, dass die simultane Beschleunigung oder Abbremsu
 (ein Controller steuert viele Zentrifugen, siehe oben) – noch verstärkt durch die Synchronisierung zwischen Controllern –
 lässt vermuten, dass zur Entwicklung von Stuxnet 1.x weniger Wert darauf gelegt wurde, unentdeckt zu bleiben.
 
+\section{Verbreitung}
+
+Auch bei der Verbreitung sind signifikante Unterschiede zwischen Stuxnet 0.5 und 1.x festzustellen:
+Stuxnet 0.5 verbreitet sich ausschließlich über eine Sicherheitslücke in Step7.
+Stuxnet 1.x hingegen weist zusätzlich dazu eine breite Vielfalt von Verbreitungswegen auf:
+
+\begin{itemize}
+\item Verbreitung über Memorysticks beim Ausführen von \texttt{autorun.inf}: nur Stuxnet 1.001\cite{dossier} % p. 30
+\item Verbreitung über Memorysticks beim Betrachten von Ordnern mit bestimmten \texttt{.lnk}-Dateien (CVE-2010-2568\cite{CVE_lnk}): ab Stuxnet 1.100
+\item Verbreitung über WinCC-Server (falls vorhanden) durch Ausnutzung eines hard-coded Server-Passworts (CVE-2010-2772\cite{CVE_wincc})
+\item Verbreitung über das SMB-Netzwerkdateisystem
+\item Verbreitung über Windows Server Service durch einen Fehler in RPC (Remote Procedure Call) (CVE-2008-4250\cite{CVE_rpc} / MS08-067\cite{MS_rpc})
+\item Verbreitung über den Printer Spooler (CVE-2010-2729\cite{CVE_spooler} / MS10-061\cite{MS_spooler})
+\end{itemize} % TODO welche davon sind zero-days?
+
+% TODO updates
+
 \bibliographystyle{plain}
 \bibliography{document}
 \end{document}
