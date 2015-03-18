@@ -28,7 +28,7 @@ Durch Wiederholung dieses Prozesses in einer Reihe von Zentrifugen wird das Uran
 
 Die Urananreicherungsanlage wird durch sog. SCADA-Software kontrolliert.
 Es ist unbekannt, welche Software genau im Iran zum Einsatz kommt;
-nach einer Analyse von Ralph Langner handelt es sich aber um keines der üblichen Programme, % TODO BibTeX etc
+nach einer Analyse von Ralph Langner\cite{tkac} handelt es sich aber um keines der üblichen Programme, % TODO exact cite
 sondern um eine eigene Software.
 Das Programm wird als amateurhaft eingestuft;
 seine Autoren seien wohl mit modernem SCADA-Design wenig vertraut. % TODO ref
@@ -52,10 +52,10 @@ Der erste Angriff stammt aus Stuxnet 0.5;
 er war in Stuxnet 1.x zwar noch enthalten, aber nicht mehr erreichbar (toter Code):
 in Stuxnet 1.x kommt ausschließlich der zweite Angriff zum Einsatz.
 Da Stuxnet 0.5 noch nicht bekannt war, als Stuxnet 1.x untersucht wurde,
-hielt man den ersten Angriff damals für ``Work in Progress''.
+hielt man den ersten Angriff damals für ``Work in Progress''.\cite{dossier} % TODO exact ref
 Hätten die Stuxnet-Autoren den ersten Angriff ganz aus Stuxnet 1.x entfernt,
 so wäre die Verbindung zwischen den beiden Versionen vermutlich nie aufgefallen,
-da sie ansonsten nur noch die Verbreitung über Step7 gemein haben.
+da sie ansonsten nur noch die Verbreitung über Step7 gemein haben.\cite{05} % TODO exact ref
 
 \subsection{1. Angriff}
 
@@ -85,11 +85,12 @@ Die IR-1 läuft als \emph{superkritisches} Design im Normalbetrieb bereits über
 Wenn der Rotor nun im zweiten Zustand beinahe angehalten und wieder angefahren wird,
 durchläuft er auch diese kritischen Frequenzen, mit dem Ergebnis einer noch höheren Ausfallwahrscheinlichkeit.
 
-Stuxnet versucht ebenfalls, WinCC (falls in der Anlage vorhanden) zu verwenden, um den Angriff zwischen mehreren Controllern zu synchronisieren.
+Stuxnet versucht ebenfalls, WinCC (falls in der Anlage vorhanden) zu verwenden, um den Angriff zwischen mehreren Controllern zu synchronisieren.\cite{dossier} % TODO exact cite
 Dazu werden alle fünf Sekunden Pakete über das Netzwerk ausgetauscht; dieser Traffic sollte bei guter Aufsicht der Anlage nicht zu übersehen sein.
 Dies, zusammen mit der Tatsache, dass die simultane Beschleunigung oder Abbremsung ganzer Reihen von Zentrifugen gut zu hören ist
 (ein Controller steuert viele Zentrifugen, siehe oben) – noch verstärkt durch die Synchronisierung zwischen Controllern –
 lässt vermuten, dass zur Entwicklung von Stuxnet 1.x weniger Wert darauf gelegt wurde, unentdeckt zu bleiben.
 
-
+\bibliographystyle{plain}
+\bibliography{document}
 \end{document}

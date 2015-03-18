@@ -11,3 +11,5 @@
 *.pdfpc
 *.snm
 *.toc
+*.bbl
+*.blg
