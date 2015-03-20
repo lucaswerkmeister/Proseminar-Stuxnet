@@ -107,7 +107,58 @@ Stuxnet 1.x hingegen weist zusätzlich dazu eine breite Vielfalt von Verbreitung
 \item Verbreitung über den Printer Spooler (CVE-2010-2729\cite{CVE_spooler} / MS10-061\cite{MS_spooler})
 \end{itemize} % TODO welche davon sind zero-days?
 
-% TODO updates
+\subsection{Updates erhalten}
+
+Stuxnet verfügte auch einen Mechanismus, um sich selbst zu aktualisieren.
+Updates wurden dabei von verschiedenen Servern heruntergeladen.
+
+Für Stuxnet 0.5 wurde eine fiktive Werbeagentur ``MediaSuffix'' beworben, die unter den folgenden Domains erreichbar war:
+
+\begin{itemize}
+\item \texttt{smartclick.org}
+\item \texttt{best-advertising.net}
+\item \texttt{internetadvertising4u.com}
+\item \texttt{ad-marketing.net}
+\end{itemize}
+
+Die Server hinter den Domains standen in den Vereinigten Staaten, Kanada, Frankreich und Thailand; % 0.5 p. 4
+die Domains sind heute alle entweder anderen Betreibern zugeordnet oder unerreichbar.
+
+Normale Besucher sahen dort nur eine nichtssagende Hauptseite\cite{archive_best_advertising};
+Stuxnet hingegen konnte auf bestimmten Unterseiten eine Infektion zurückmelden oder Updates anfordern.
+
+Für Stuxnet 1.x wurde eine neue Tarnung genutzt, offenbar für eine Sportwetten-Agentur unter folgenden Domains:
+
+\begin{itemize}
+\item \texttt{mypremierfutbol.com}
+\item \texttt{todaysfutbol.com}
+\end{itemize}
+
+Die Server hinter diesen Domains standen in Malaysia und Dänemark.
+Unglücklicherweise ist der damalige Inhalt dieser Seiten unbekannt,
+da das Internet Archive sie erst seit 2011 archiviert,
+nachdem sie bereits umgeleitet wurden, um weitere Stuxnet-Updates zu verhindern.
+
+Auch Stuxnet 1.x rief bestimmte, konstruierte URLs auf;
+der Vorgang ist jedoch komplexer als bei Stuxnet 0.5.
+Stuxnet sendet mehr Daten über das Hostsystem (z.~B. Betriebssystemversion, Hostname),
+und die Kommunikation ist in beide Richtungen durch XOR-Verknüpfung mit statischen 31-Bit-Schlüsseln geschützt.
+
+\subsection{Updates verteilen}
+
+Da das schlussendliche Zielsystem von Stuxnet aus Sicherheitsgründen nicht direkt am Internet hängt,
+müssen Updates über mehrere Stuxnet-Infektionen propagiert werden.
+
+Stuxnet überprüft dazu vor jeder potenziellen Neuinfektion, ob das Zielsystem bereits infiziert ist;
+ist dies der Fall, so werden die Versionen verglichen und gegebenenfalls das Ziel- oder eigene System aktualisiert.
+
+Außerdem können Stuxnet-Infektionen auch direkt über das Netzwerk kommunizieren.
+Stuxnet 0.5 verwendet dazu Mailslots, einen einfachen Mechanismus zur Interprozesskommunikation;
+Stuxnet 1.x started hingegen einen vollständigen RPC-Server und -Client (RPC=Remote Procedure Call), % TODO proper abbreviations?
+der verschiedene Programmroutinen bereitstellt und aufruft.
+
+Ferner können File Shares, die wie oben erwähnt zur Infektion genutzt werden,
+auch zur Kommunikation und zum Austausch von Stuxnet-DLLs dienen.
 
 \bibliographystyle{plain}
 \bibliography{document}
