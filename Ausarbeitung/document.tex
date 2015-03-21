@@ -2,6 +2,44 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage[ngerman]{babel}
+\usepackage{xcolor}
+\usepackage{inconsolata}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{etoolbox}
+
+\lstdefinestyle{c}{language=C,
+basicstyle=\footnotesize\ttfamily,
+commentstyle=\color{green},
+%identifierstyle=\color{blue},                                                                                                                                                                                                               
+keywordstyle=\color{purple},
+stringstyle=\color{cyan},
+numbers=left,
+matchrangestart=t
+}
+
+% https://tex.stackexchange.com/a/110195
+\makeatletter
+\lst@Key{matchrangestart}{f}{\lstKV@SetIf{#1}\lst@ifmatchrangestart}
+\def\lst@SkipToFirst{%
+    \lst@ifmatchrangestart\c@lstnumber=\numexpr-1+\lst@firstline\fi
+    \ifnum \lst@lineno<\lst@firstline
+        \def\lst@next{\lst@BeginDropInput\lst@Pmode
+        \lst@Let{13}\lst@MSkipToFirst
+        \lst@Let{10}\lst@MSkipToFirst}%
+        \expandafter\lst@next
+    \else
+        \expandafter\lst@BOLGobble
+    \fi}
+\makeatother
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{
+  \colorbox[cmyk]{0.43, 0.35, 0.35,0.01 }{
+    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
+  }
+}
+\captionsetup[lstlisting]{ format=listing, labelfont=white, textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize} }
 
 \title{Stuxnet}
 \author{Lucas Werkmeister}
@@ -159,6 +197,64 @@ der verschiedene Programmroutinen bereitstellt und aufruft.
 
 Ferner können File Shares, die wie oben erwähnt zur Infektion genutzt werden,
 auch zur Kommunikation und zum Austausch von Stuxnet-DLLs dienen.
+
+\subsection{CVE-2010-2743 Local Privilege Escalation (1.10x)}
+
+Wir wollen nun eine Sicherheitslücke in Windows, die Stuxnet ab Version 1.100 ausnutzte, um im Kernel-Mode zu laufen, genauer untersuchen.
+Der Kern der Sicherheitslücke ist ein Zugriff durch Windows auf eine Funktionspointertabelle mit ungeprüftem Index.
+
+Eine Funktionspointertabelle (Function Pointer Table) ist ein Mittel,
+um effizient zwischen verschiedenen Verhaltensweisen eines Programms zu wählen.
+In C kann sie so aussehen:
+
+\lstinputlisting[
+  language=C,
+  style=c,
+  caption=Definition und Verwendung einer Funktionspointertabelle
+]{../functionPointerDemo2/01-harmless.c}
+
+\texttt{execute()} führt eine unterschiedliche Operation aus, je nachdem, welche Funktion über das erste Argument ausgewählt wurde.
+Anderer Code muss somit nur noch die Indizes (Opcodes) der einzelnen Operationen kennen, nicht mehr die Funktionen, die tatsächlich ausgeführt werden.
+
+Allerdings ist das Verhalten von \texttt{execute()} undefiniert, wenn ein ungültiger Index eingegeben wird.
+In diesem Fall wird Speicher gelesen, der nicht Teil der Funktionspointertabelle ist und vermutlich keinen gültigen Pointer in eine ausführbare Seite enthält;
+das Ergebnis ist dann ein Segmentation Fault.
+
+\lstinputlisting[
+  language=C,
+  style=c,
+  firstline=18,
+  caption=Ungültige Verwendung der \texttt{execute()}-Funktion
+]{../functionPointerDemo2/02-broken.c}
+
+Dies ist allerdings nicht zwingend gegeben; es ist durchaus möglich, dass an der richtigen Stelle ein Funktionspointer liegt,
+etwa weil im Quelltext ein anderes Feld dahinter deklariert wurde, das ebenfalls einen Funktionpointer enthält:
+
+\lstinputlisting[
+  language=C,
+  style=c,
+  %linerange={7-7,14-14,20-25},
+  caption=Ausführung von unbeabsichtigtem Code
+]{../functionPointerDemo2/03-infected.c}
+
+Im Falle von CVE-2010-2743 findet der Sprung in die Funktionspointertabelle innerhalb von \texttt{win32k.sys} beim Laden einer Tastaturbelegung statt.
+Hinter der Funktionstabelle liegen hier nicht weitere Funktionspointer, sondern andere Daten.
+Stuxnet lädt nun diese Systemdatei und durchsucht diese Daten nach einem geeigneten \texttt{DWORD}, das auch als virtuelle Adresse interpretiert werden kann;
+ist ein solches \texttt{DWORD} gefunden, so allokiert Stuxnet Speicher an dieser Adresse und schreibt etwas ausführbaren Code dorthin
+(da der Platz an der Stelle begrenzt sein kann, wird nur ein Sprung an eine andere, frei wählbare Adresse geschrieben).
+Anschließend schreibt Stuxnet eine speziell korrupte Tastaturbelegungsdatei auf die Festplatte, die einen Sprung an das gefundene \texttt{DWORD} auslösen wird,
+und weist dann Windows an, diese Tastaturbelegung zu laden.
+Sobald \texttt{win32k.sys} (im Kernel-Mode laufend) versucht, in die Funktionstabelle zu springen,
+läuft Stuxnet ebenfalls im Kernel-Mode.
+
+Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspointertabelle vor dem Sprung überprüft wird:
+
+\lstinputlisting[
+  language=C,
+  style=c,
+  linerange=16-23,
+  caption=Fehlerbehandlung
+]{../functionPointerDemo2/04-protected.c}
 
 \bibliographystyle{plain}
 \bibliography{document}
