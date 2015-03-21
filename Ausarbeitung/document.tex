@@ -256,6 +256,33 @@ Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspoi
   caption=Fehlerbehandlung
 ]{../functionPointerDemo2/04-protected.c}
 
+\subsection{CVE-2012-3015 Step7-Infektion (alle Stuxnet-Versionen)}
+
+Stuxnet infizierte auch Step7 und verbreitete sich über Step7-Projekte,
+die z.~B. innerhalb der Anlage über USB-Sticks ausgetauscht wurden
+(Stuxnet 0.5 verbreitete sich sogar \emph{ausschließlich} auf diesem Weg).
+Außerdem wurde Step7 auch zur Infektion der PLCs genutzt, die dann letztlich den tatsächlichen, physikalischen Angriff durchführten.
+
+Um eine Step7-Installation beim Öffnen eines Projekts zu infizieren, nutzt Stuxnet eine Untrusted Search Path Vulnerability (CWE-426\cite{cwe_searchpath}).
+Durch eine manipulierte Konfigurationsdatei im Projekt wird Step7 veranlasst, eine bestimmte DLL-Datei zu laden.
+Dabei sucht Step7 zwar erst auf dem System selbst (in der Step7-Installation sowie in verschiedenen Windows-Ordnern), % dossier p. 33
+aber wenn die Datei dort nicht gefunden wird, sucht Step7 auch innerhalb des Projektordners.
+Dabei wird dann eine DLL gefunden, die von Stuxnet zuvor abgelegt wurde;
+diese entschlüsselt und lädt wiederum eine andere Datei innerhalb des Projekts, welche den Haupt-Stuxnet-Code enthält.
+Stuxnet läuft nun auf dem System und führt die restliche Infektion (Privilege Escalation, Infektion anderer Prozesse) durch.
+
+Sobald Stuxnet auf dem System läuft, werden auch zwei Step7-DLLs mit eigenen Versionen ersetzt.
+Die Stuxnet-Variante deklariert die gleichen Funktionen wie die Original-DLLs,
+und die meisten der Funktionen leiten beim Aufruf auch nur an die Original-DLLs weiter,
+welche umbenannt zu diesem Zweck weiterhin zur Verfügung stehen.
+Einige Funktionen jedoch werden modifiziert, um die PLCs zu infizieren:
+Dabei handelt es sich um Funktionen, die PLC-Blöcke schreiben, lesen und auflisten.
+Indem Stuxnet diese Funktionen abfängt, kann es nicht nur eigenen Code auf die PLCs schreiben,
+sondern auch verhindern, dass dieser Code entdeckt wird, indem er beim Lesen wieder herausgefiltert wird.
+In anderen Worten, von einem infizierten System aus ist die Infektion der PLCs nicht zu erkennen.
+
+% TODO erwähnen, wie spät gefixt? dass deshalb informationslage schlecht?
+
 \bibliographystyle{plain}
 \bibliography{document}
 \end{document}
