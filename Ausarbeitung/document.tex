@@ -283,6 +283,56 @@ In anderen Worten, von einem infizierten System aus ist die Infektion der PLCs n
 
 % TODO erwähnen, wie spät gefixt? dass deshalb informationslage schlecht?
 
+\section{Vergleich der Stuxnet-Versionen}
+
+Wir wollen nun die Stuxnet-Versionen 0.5 und 1.x hinsichtlich ihrer Aggressivität und Verbreitungsweisen vergleichen.
+
+Stuxnet 0.5 verbreitet sich, wie schon erwähnt, ausschließlich über Step7-Infektionen.
+Die Command-and-Control-Möglichkeiten sind darauf beschränkt, neuen Code herunterzuladen und auszuführen;
+dies ist zwar ausreichend, um später eine neue Version mit weiterreichenden C\&C-Möglichkeiten (z.~B. Rückmeldung des Hostsystems) zu installieren,
+zeigt aber, dass solche Fähigkeiten bei der Entwicklung von Stuxnet für unwichtig erachtet wurden.
+Eine Verbreitung von Updates über das Netzwerk, um auch Computer zu erreichen, die keinen direkten Zugang zum Internet haben,
+findet zwar statt, ist aber ebenfalls einfach gehalten.
+Der tatsächliche Angriff auf die Zentrifugen ist hingegen sehr fortgeschritten:
+er tarnt sich durch Abspielen von alten Sensordaten,
+ist extrem präzise auf das Layout der Anlage zugeschnitten, so dass jegliche Änderung – unterschiedliche Zentrifugenanzahl, andere Anordnung der Stufen – ein Versagen des Angriffs zur Folge gehabt hätte,
+und achtet sorgfältig darauf, unauffällig zu bleiben, indem der Angriff unterbrochen wird, bevor zu viele Zentrifugen auf einmal zerstört werden.
+Es ist offensichtlich, dass bei Stuxnet 0.5 der Hauptentwicklungsaufwand auf diesen Angriff verwendet wurde,
+während man für die Verbreitung keinen höheren Aufwand als nötig betrieb.
+
+Vollkommen anders ist die Situation bei Stuxnet 1.x.
+Die Infektion von Step7 wurde unverändert übernommen (zur Laufzeit werden allerdings durch die Stuxnet-DLL mehr Funktionen abgefangen),
+aber eine Vielzahl an Infektionswegen kam hinzu, einschließlich mehrerer Privilege Escalations, die dadurch nötig wurden.
+Stuxnet 1.x nutzt \emph{vier} Zero-Day-Exploits aus, eine enorm hohe Anzahl, die nie zuvor in Schädlingen nachgewiesen wurde
+(die meiste Malware nutzt bekannte Sicherheitslücken; selbst ein Zero-Day-Exploit ist bereits selten).
+Die Command-and-Control-Fähigkeiten sind ebenfalls weiter fortgeschritten;
+Stuxnet lädt nicht nur neuen Code herunter (der, je nach Angabe des Servers, entweder im aktuellen oder per RPC in einem anderen Prozess ausgeführt wird),
+sondern meldet zuvor auch verschiedene Informationen über sein Hostsystem,
+inklusive Betriebssystem, Host- und Domainnamen, und ob Step7 oder WinCC vorhanden sind (Existenz bestimmter Registry-Keys).
+Auch die Kommunikation unter Stuxnet-Infektionen ist ausgereifter:
+anstelle einfacher Mailslots wird ein RPC-Server aufgesetzt, der zehn verschiedene Routinen bereitstellt. % dossier p. 25
+
+Die Ausführung des tatsächlichen Angriffs steht in starkem Kontrast dazu:
+der Angriff, der jetzt verwendet wird (Manipulation der Rotorgeschwindigkeit),
+ist viel einfacher gehalten (der Angriff aus Stuxnet 0.5 ist weiterhin vorhanden, aber unerreichbar, und wurde zum Zeitpunkt der Untersuchung von Stuxnet 1.x für unfertig gehalten\cite{dossier}).
+Dies hat den Vorteil, dass der Angriff relativ robust gegen Änderungen an der Anlage ist, die den 0.5-Angriff außer Gefecht gesetzt hätten.
+Allerdings ist der Angriff auch leichter zu bemerken:
+Ein Ingenieur, der sich ohne Gehörschutz in der Anlage befindet, würde die Beschleunigung und Bremsung der Zentrifugen leicht hören.
+Dies wird dadurch noch verstärkt, dass Stuxnet versucht, den Angriff über mehrere PLCs hinweg zu synchronisieren
+(falls ein infiziertes WinCC vorhanden ist);
+diese Synchronisierung resultiert außerdem in Netzwerk-Traffic – alle 5 Sekunden – der den Aufsehern der Anlage hätte auffallen müssen.
+
+Es ist also offensichtlich, dass sich zwischen Stuxnet 0.5 und 1.x der Fokus der Entwicklung
+von der physikalischen Sabotage der Anlage zur Infektion ihrer Systeme verschob;
+gleichzeitig wurde ein geringerer Wert darauf gelegt, nicht entdeckt zu werden.
+Es wird spekuliert, dass eine Enthüllung von Stuxnet nicht nur in Kauf genommen wurde,
+sondern sogar in einem gewissen Maße beabsichtigt war:
+Stuxnet demonstriert deutlich, dass Cyber-Kriegsführung möglich und erfolgreich ist,
+und es mag im Interesse der Stuxnet-Entwickler (mutmaßlich der USA) gewesen sein,
+dass diese erste öffentliche Demonstration nicht von einem anderen Staat kam
+(vergleichbar zum Space Race der USA mit der Sowjetunion,
+wo letztere den USA mit Juri Gagarin als erstem Menschen im All zuvorkamen). % TKaC 16
+
 \bibliographystyle{plain}
 \bibliography{document}
 \end{document}
