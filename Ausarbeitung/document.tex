@@ -7,6 +7,9 @@
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{chngpage}
 
 \lstdefinestyle{c}{language=C,
 basicstyle=\footnotesize\ttfamily,
@@ -16,6 +19,12 @@ keywordstyle=\color{purple},
 stringstyle=\color{cyan},
 numbers=left,
 matchrangestart=t
+}
+
+% Needed so \autoref{fig:bla} writes Abbildung rather than Figure.
+% From the Hyperref manual, p. 16/17, via https://tex.stackexchange.com/a/186948.
+\addto\extrasngerman{%
+  \def\figureautorefname{\figurename}%
 }
 
 % https://tex.stackexchange.com/a/110195
@@ -316,9 +325,21 @@ und achtet sorgfältig darauf, unauffällig zu bleiben, indem der Angriff unterb
 Es ist offensichtlich, dass bei Stuxnet 0.5 der Hauptentwicklungsaufwand auf diesen Angriff verwendet wurde,
 während man für die Verbreitung keinen höheren Aufwand als nötig betrieb.
 
+\begin{figure}
+  \begin{adjustwidth}{-3cm}{+3cm}
+    \subfloat[Ausgenutzte Sicherheitslücken]{
+      \includegraphics[width=10cm]{../Evolution_exploits.pdf}
+    }
+    \subfloat[Verbreitungswege]{
+      \includegraphics[width=7cm]{../Evolution_replication.pdf}
+    }
+  \end{adjustwidth}
+  \caption{Vergleich der Fähigkeiten der verschiedenen Stuxnet-Versionen\label{fig:vergleich}}
+\end{figure}
+
 Vollkommen anders ist die Situation bei Stuxnet 1.x.
 Die Infektion von Step7 wurde unverändert übernommen (zur Laufzeit werden allerdings durch die Stuxnet-DLL mehr Funktionen abgefangen),
-aber eine Vielzahl an Infektionswegen kam hinzu, einschließlich mehrerer Privilege Escalations, die dadurch nötig wurden.
+aber eine Vielzahl an Infektionswegen kam hinzu, einschließlich mehrerer Privilege Escalations, die dadurch nötig wurden (siehe \autoref{fig:vergleich}).
 Stuxnet 1.x nutzt \emph{vier} Zero-Day-Exploits aus, eine enorm hohe Anzahl, die nie zuvor in Schädlingen nachgewiesen wurde
 (die meiste Malware nutzt bekannte Sicherheitslücken; selbst ein Zero-Day-Exploit ist bereits selten).
 Die Command-and-Control-Fähigkeiten sind ebenfalls weiter fortgeschritten;
