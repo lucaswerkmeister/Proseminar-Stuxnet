@@ -304,7 +304,7 @@ Außerdem wurde Step7 auch zur Infektion der PLCs genutzt, die dann letztlich de
 Um eine Step7-Installation beim Öffnen eines Projekts zu infizieren, nutzt Stuxnet eine Untrusted Search Path Vulnerability (CWE-426\cite{cwe_searchpath}).
 Durch eine manipulierte Konfigurationsdatei im Projekt wird Step7 veranlasst, eine bestimmte DLL-Datei zu laden.
 Dabei sucht Step7 zwar erst auf dem System selbst (in der Step7-Installation sowie in verschiedenen Windows-Ordnern), % dossier p. 33
-aber wenn die Datei dort nicht gefunden wird, sucht Step7 auch innerhalb des Projektordners.
+aber wenn die Datei dort nicht gefunden wird, sucht Step7 auch innerhalb des Pro\-jekt\-ord\-ners.
 Dabei wird dann eine DLL gefunden, die von Stuxnet zuvor abgelegt wurde;
 diese entschlüsselt und lädt wiederum eine andere Datei innerhalb des Projekts, welche den Haupt-Stuxnet-Code enthält.
 Stuxnet läuft nun auf dem System und führt die restliche Infektion (Privilege Escalation, Infektion anderer Prozesse) durch.
