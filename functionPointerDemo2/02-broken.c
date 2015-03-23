@@ -9,7 +9,8 @@ static int op_divide   (int i1, int i2) { return i1/i2; }
 #define minus 1
 #define times 2
 #define divide 3
-static int (*ops[])(int,int) = { op_add, op_subtract, op_multiply, op_divide };
+static int (*ops[])(int,int)
+  = { op_add, op_subtract, op_multiply, op_divide };
 
 int execute(int operation, int operand1, int operand2) {
   return ops[operation](operand1, operand2);
