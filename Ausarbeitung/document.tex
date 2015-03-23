@@ -75,11 +75,11 @@ Natürlich vorkommendes Uran besteht zu etwa 99\% aus dem Isotop $^{238}\mathrm 
 Allerdings ist nur letzteres Isotop zu einer Kernspaltungs-Kettenreaktion fähig;
 zur Anwendung des Urans muss sein Anteil also erhöht werden: auf 3-5\% zur Energiegewinnung, für Nuklearwaffen sogar auf über 85\%.
 Diese \emph{Anreicherung} des Urans geschieht üblicherweise durch Gaszentrifugen.
-Dabei wird das Gas $\mathrm{UH}_6$, Uranhexafluorid, in einer Zentrifuge zur Rotation gebracht.
+Dabei wird das Gas $\mathrm{UF}_6$, Uranhexafluorid, in einer Zentrifuge zur Rotation gebracht.
 Fluor kommt als \emph{Reinelement} in der Natur ausschließlich als $^{19}F$ vor;
-jegliche Gewichtsvariation unter den $\mathrm{UH}_6$-Molekülen ist also durch das enthaltene Uran verursacht.
-In den Zentrifugen sammelt sich also aufgrund der Zentrifugalkraft das $\mathrm{UH}_6$ mit dem erwünschten $^{235}\mathrm U$ innen,
-während $\mathrm{UH}_6$ mit $^{238}\mathrm U$ außen entnommen werden kann.
+jegliche Gewichtsvariation unter den $\mathrm{UF}_6$-Molekülen ist also durch das enthaltene Uran verursacht.
+In den Zentrifugen sammelt sich also aufgrund der Zentrifugalkraft das $\mathrm{UF}_6$ mit dem erwünschten $^{235}\mathrm U$ innen,
+während $\mathrm{UF}_6$ mit $^{238}\mathrm U$ außen entnommen werden kann.
 Durch Wiederholung dieses Prozesses in einer Reihe von Zentrifugen wird das Uran angereichert.\cite{wiki:urananreicherung}
 
 \subsection{Aufbau der Anlage im Iran}
@@ -117,7 +117,7 @@ Dabei handelt es sich um einfache Prozessoren, die Signale von Sensoren verarbei
 um verschiedene Ausgangssignale zu setzen.
 In der Anlage von Natanz stammt dieser Teil des Systems von Siemens;
 der S7-315 Controller steuert die Rotoren der Zentrifugen selbst (164 Motoren pro Controller), % TKaC 12
-der S7-417 Controller die Ventile, welche den Zu- und Abfluss von $\mathrm{UH}_6$ regeln (984 Zentrifugen pro Controller).
+der S7-417 Controller die Ventile, welche den Zu- und Abfluss von $\mathrm{UF}_6$ regeln (984 Zentrifugen pro Controller).
 Diese PLCs werden durch die Siemens-Software \emph{Step7} (Eigenschreibweise \emph{STEP7}) programmiert;
 indem Stuxnet dieses Programm infizierte, konnte es eigene Codeblöcke auf die PLCs schreiben
 und somit den physikalischen Angriff durchführen.
@@ -137,7 +137,7 @@ da sie ansonsten nur noch die Verbreitung über Step7 gemein haben.\cite{05} % T
 \subsection{1. Angriff}
 
 Der erste Angriff manipuliert die Ventile an den Zentrifugen so,
-dass $\mathrm{UH}_6$ zwar ein-, aber nicht mehr abfließen kann.
+dass $\mathrm{UF}_6$ zwar ein-, aber nicht mehr abfließen kann.
 Dadurch steigt der Druck in den Zentrifugen.
 Um dies vor den Operatoren der Anlage zu verbergen,
 werden alte Sensordaten abgespielt, die Stuxnet vor Beginn des Angriffs aufzeichnet.
