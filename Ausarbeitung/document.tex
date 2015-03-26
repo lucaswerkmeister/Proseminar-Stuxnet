@@ -9,7 +9,6 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{subfig}
-\usepackage{chngpage}
 
 \lstdefinestyle{c}{language=C,
 basicstyle=\footnotesize\ttfamily,
@@ -351,14 +350,14 @@ Es ist offensichtlich, dass bei Stuxnet 0.5 der Hauptentwicklungsaufwand auf die
 während man für die Verbreitung keinen höheren Aufwand als nötig betrieb.
 
 \begin{figure}
-  \begin{adjustwidth}{-3cm}{+3cm}
-    \subfloat[Ausgenutzte Sicherheitslücken]{
-      \includegraphics[width=10cm]{../Evolution_exploits.pdf}
-    }
-    \subfloat[Verbreitungswege]{
-      \includegraphics[width=7cm]{../Evolution_replication.pdf}
-    }
-  \end{adjustwidth}
+  \centering
+  \subfloat[Ausgenutzte Sicherheitslücken]{
+    \includegraphics[width=0.75\linewidth]{../Evolution_exploits.pdf}
+  }
+  
+  \subfloat[Verbreitungswege]{
+    \includegraphics[width=0.5\linewidth]{../Evolution_replication.pdf}
+  }
   \caption{Vergleich der Fähigkeiten der verschiedenen Stuxnet-Versionen\label{fig:vergleich}}
 \end{figure}
 
