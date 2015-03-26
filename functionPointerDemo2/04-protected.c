@@ -17,11 +17,11 @@ static int (*ops[])(int,int)
 static int (*secret)(int,int) = op_debug;
 
 int execute(int operation, int operand1, int operand2) {
-  if (operation < 0
-      || operation >= sizeof(ops)/sizeof(ops[0])) {
-    printf("Illegal operation\n");
-    exit(1); // Windows should instead abort the operation
-  }
+%\Hilight%  if (operation < 0
+%\Hilight%      || operation >= sizeof(ops)/sizeof(ops[0])) {
+%\Hilight%    printf("Illegal operation\n");
+%\Hilight%    exit(1); // Windows should instead abort the operation
+%\Hilight%  }
   return ops[operation](operand1, operand2);
 }
 

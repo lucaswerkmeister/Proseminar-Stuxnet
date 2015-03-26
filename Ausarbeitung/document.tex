@@ -42,6 +42,10 @@ matchrangestart=t
     \fi}
 \makeatother
 
+% http://www.latex-community.org/forum/viewtopic.php?f=4&t=2835
+\definecolor{lightGray}{rgb}{0.9, 0.9, 0.9}
+\newcommand{\Hilight}{\makebox[0pt][l]{\color{lightGray}\rule[-0.3em]{\linewidth}{1.2em}}}
+
 \title{Stuxnet}
 \author{Lucas Werkmeister}
 
@@ -252,7 +256,8 @@ In C kann sie so aussehen:
 \lstinputlisting[
   language=C,
   style=c,
-  caption=Definition und Verwendung einer Funktionspointertabelle
+  caption=Definition und Verwendung einer Funktionspointertabelle,
+  escapechar=\%
 ]{../functionPointerDemo2/01-harmless.c}
 
 \texttt{execute()} führt eine unterschiedliche Operation aus, je nachdem, welche Funktion über das erste Argument ausgewählt wurde.
@@ -266,7 +271,8 @@ das Ergebnis ist dann ein Segmentation Fault.
   language=C,
   style=c,
   firstline=19,
-  caption=Ungültige Verwendung der \texttt{execute()}-Funktion
+  caption=Ungültige Verwendung der \texttt{execute()}-Funktion,
+  escapechar=\%
 ]{../functionPointerDemo2/02-broken.c}
 
 Dies ist allerdings nicht zwingend gegeben; es ist durchaus möglich, dass an der richtigen Stelle ein Funktionspointer liegt,
@@ -276,7 +282,8 @@ etwa weil im Quelltext ein anderes Feld dahinter deklariert wurde, das ebenfalls
   language=C,
   style=c,
   %linerange={7-7,14-14,20-25},
-  caption=Ausführung von unbeabsichtigtem Code
+  caption=Ausführung von unbeabsichtigtem Code,
+  escapechar=\%
 ]{../functionPointerDemo2/03-infected.c}
 
 Im Falle von CVE-2010-2743 findet der Sprung in die Funktionspointertabelle innerhalb von \texttt{win32k.sys} beim Laden einer Tastaturbelegung statt.
@@ -295,7 +302,8 @@ Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspoi
   language=C,
   style=c,
   linerange=19-26,
-  caption=Fehlerbehandlung
+  caption=Fehlerbehandlung,
+  escapechar=\%
 ]{../functionPointerDemo2/04-protected.c}
 
 \subsection{CVE-2012-3015 Step7-Infektion}

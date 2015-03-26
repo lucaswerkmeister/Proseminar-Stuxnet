@@ -13,7 +13,7 @@ static int (*ops[])(int,int)
   = { op_add, op_subtract, op_multiply, op_divide };
 
 int execute(int operation, int operand1, int operand2) {
-  return ops[operation](operand1, operand2);
+%\Hilight%  return ops[operation](operand1, operand2);
 }
 
 int main(int argc, char* argv[]) {

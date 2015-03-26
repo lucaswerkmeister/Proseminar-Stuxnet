@@ -4,9 +4,9 @@ static int op_add      (int i1, int i2) { return i1+i2; }
 static int op_subtract (int i1, int i2) { return i1-i2; }
 static int op_multiply (int i1, int i2) { return i1*i2; }
 static int op_divide   (int i1, int i2) { return i1/i2; }
-static int op_debug    (int i1, int i2) {
-  return printf("DEBUG(%i,%i), ", i1, i2);
-}
+%\Hilight%static int op_debug    (int i1, int i2) {
+%\Hilight%  return printf("DEBUG(%i,%i), ", i1, i2);
+%\Hilight%}
 
 #define plus 0
 #define minus 1
@@ -14,7 +14,7 @@ static int op_debug    (int i1, int i2) {
 #define divide 3
 static int (*ops[])(int,int)
   = { op_add, op_subtract, op_multiply, op_divide };
-static int (*secret)(int,int) = op_debug;
+%\Hilight%static int (*secret)(int,int) = op_debug;
 
 int execute(int operation, int operand1, int operand2) {
   return ops[operation](operand1, operand2);
