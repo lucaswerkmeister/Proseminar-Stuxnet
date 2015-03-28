@@ -47,5 +47,5 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔4 der Angriff, der jetzt <- wann? Stuxnet 1.x
 ✔4 Synchronisierung resultiert nicht in Traffic, verursacht ihn
 ✔4 es wurde ~ein~ geringerer Wert darauf gelegt
-4 passivsätze machen aktor unklar. wer legte weniger Wert darauf?
+✔4 passivsätze machen aktor unklar. wer legte weniger Wert darauf?
 4 Cyber-Krieg weit entfernt vom Rest des Dokuments, verbinden
