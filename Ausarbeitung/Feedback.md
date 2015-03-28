@@ -20,7 +20,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔1.3 sg. -> sogenannte
 1.3 eigene Software?
 ✔1.3 verarbeiten, um _Steuersignale_ zu setzen
-2 (toter Code): doppelpunkt weg
+✔2 (toter Code): doppelpunkt weg
 2 Begriff des „Angriffs“ mit Sabotage verbinden
 2.1, 2.2: Erster, Zweiter ausschreiben
 2.1 noch ein Doppelpunkt
