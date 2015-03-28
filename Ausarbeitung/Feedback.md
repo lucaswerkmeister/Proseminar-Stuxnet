@@ -23,7 +23,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔2 (toter Code): doppelpunkt weg
 ✔2 Begriff des „Angriffs“ mit Sabotage verbinden
 ✔2.1, 2.2: Erster, Zweiter ausschreiben
-2.1 noch ein Doppelpunkt
+✔2.1 noch ein Doppelpunkt
 2.2 WinCC was ist das?
 3.1 „bestimmte“ ist unbestimmt, „rief präparierte URLs auf“
 3.2 am Internet „hängen“
