@@ -43,7 +43,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔4 „extrem“ „sehr“
 4 : er tarnt sich, ist zugeschnitten ... UND -> mehrere sätze
 4 die wodurch nötig wurden?
-4 (Existenz von Registry-Keys) klammern wegmachen (weglassen oder umformulieren: ob Step7 vorhanden, wird rausgefunden, indem Registry)
+✔4 (Existenz von Registry-Keys) klammern wegmachen (weglassen oder umformulieren: ob Step7 vorhanden, wird rausgefunden, indem Registry)
 4 der Angriff, der jetzt <- wann? Stuxnet 1.x
 4 Synchronisierung resultiert nicht in Traffic, verursacht ihn
 4 es wurde ~ein~ geringerer Wert darauf gelegt
