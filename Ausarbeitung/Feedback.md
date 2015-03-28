@@ -16,7 +16,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔1.1 also also
 ✔1.2 Iran? der Iran?
 ✔1.2 Innendruck wovon? der Zentrifuge
-1.2 auch so stabil ist ugs
+✔1.2 auch so stabil ist ugs
 1.3 sg. -> sogenannte
 1.3 eigene Software?
 1.3 verarbeiten, um _Steuersignale_ zu setzen
