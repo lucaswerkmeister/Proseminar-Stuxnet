@@ -105,7 +105,7 @@ Anschließend kann der Betrieb normal weiterlaufen.
 
 \subsection{Steuerung der Anlage}
 
-Die Urananreicherungsanlage wird durch sog. SCADA-Software kontrolliert.
+Die Urananreicherungsanlage wird durch sogenannte SCADA-Software kontrolliert.
 Es ist unbekannt, welche Software genau im Iran zum Einsatz kommt;
 nach einer Analyse von Langner\cite{tkac} handelt es sich aber um keines der üblichen Programme, % TODO exact cite
 sondern um eine eigene Software.
@@ -145,7 +145,7 @@ Um dies vor den Operatoren der Anlage zu verbergen,
 werden alte Sensordaten abgespielt, die Stuxnet vor Beginn des Angriffs aufzeichnet.
 
 Würde Stuxnet nun nichts weiter tun, so würden die Zentrifugen durch den steigenden Druck schließlich zerstört werden.
-Da aber ein Controller sehr viele Zentrifugen regelt (s.~o.), würde dies für viele Zentrifugen fast zeitgleich geschehen;
+Da aber ein Controller sehr viele Zentrifugen regelt (siehe open), würde dies für viele Zentrifugen fast zeitgleich geschehen;
 dieses abnormale Verhalten würde auffallen und Stuxnet in einer Post-Mortem-Analyse vermutlich enttarnt werden.
 Stuxnet bricht deshalb den Angriff nach einer Weile ab.
 Dadurch verursacht dieser Angriff eine höhere Belastung der Anlage,
@@ -221,7 +221,7 @@ nachdem sie bereits umgeleitet wurden, um weitere Stuxnet-Updates zu verhindern.
 
 Auch Stuxnet 1.x rief bestimmte, präparierte URLs auf;
 der Vorgang ist jedoch komplexer als bei Stuxnet 0.5.
-Stuxnet sendet mehr Daten über das Hostsystem (z.~B. Betriebssystemversion, Hostname),
+Stuxnet sendet mehr Daten über das Hostsystem (zum Beispiel Betriebssystemversion, Hostname),
 und die Kommunikation ist in beide Richtungen durch XOR-Verknüpfung mit statischen 31-Bit-Schlüsseln geschützt.
 
 \subsection{Updates verteilen}
@@ -305,7 +305,7 @@ Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspoi
 \subsection{CVE-2012-3015 Step7-Infektion}
 
 Stuxnet infizierte auch Step7 und verbreitete sich über Step7-Projekte,
-die z.~B. innerhalb der Anlage über USB-Sticks ausgetauscht wurden
+die zum Beispiel innerhalb der Anlage über USB-Sticks ausgetauscht wurden
 (Stuxnet 0.5 verbreitete sich sogar \emph{ausschließlich} auf diesem Weg).
 Außerdem wurde Step7 auch zur Infektion der PLCs genutzt, die dann letztlich den tatsächlichen, physikalischen Angriff durchführten.
 
@@ -335,7 +335,7 @@ Wir wollen nun die Stuxnet-Versionen 0.5 und 1.x hinsichtlich ihrer Aggressivit�
 
 Stuxnet 0.5 verbreitet sich, wie schon erwähnt, ausschließlich über Step7-Infektionen.
 Die Command-and-Control-Möglichkeiten sind darauf beschränkt, neuen Code herunterzuladen und auszuführen;
-dies ist zwar ausreichend, um später eine neue Version mit weiterreichenden C\&C-Möglichkeiten (z.~B. Rück\-mel\-dung des Hostsystems) zu installieren,
+dies ist zwar ausreichend, um später eine neue Version mit weiterreichenden C\&C-Möglichkeiten (zum Beispiel Rück\-mel\-dung des Hostsystems) zu installieren,
 zeigt aber, dass solche Fähigkeiten bei der Entwicklung von Stuxnet für unwichtig erachtet wurden.
 Eine Verbreitung von Updates über das Netzwerk, um auch Computer zu erreichen, die keinen direkten Zugang zum Internet haben,
 findet zwar statt, ist aber ebenfalls einfach gehalten.
