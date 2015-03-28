@@ -291,7 +291,7 @@ An die Zieladresse des gefundenen \texttt{DWORD} wird dann nur ein Sprungbefehl 
 Anschließend schreibt Stuxnet eine speziell korrupte Tastaturbelegungsdatei auf die Festplatte, die einen Sprung an das gefundene \texttt{DWORD} auslösen wird,
 und weist dann Windows an, diese Tastaturbelegung zu laden.
 Sobald \texttt{win32k.sys} (im Kernel-Mode laufend) versucht, in die Funktionstabelle zu springen,
-läuft Stuxnet ebenfalls im Kernel-Mode.
+läuft der eingeschleuste Stuxnet-Code ebenfalls im Kernel-Mode.
 
 Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspointertabelle vor dem Sprung überprüft wird:
 

@@ -33,7 +33,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔3.3 „Definition“ heißt unterschiedliches, „Implementierung“
 ✔3.3 „etwas Code“, was für Code?
 ✔3.3 Sprung -> Sprungbefehl, oder Klammer ganz weglassen
-3.3 der eingeschleuste Code äuft im Kernel-Mode
+✔3.3 der eingeschleuste Code äuft im Kernel-Mode
 3.4 bessere Einleitung
 ✔3.4 z. B. ist abk.
 3.4 auch ist wiederholt
