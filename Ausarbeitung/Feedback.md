@@ -31,8 +31,8 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔3.3 nix „wir wollen“. „Wir stellen vor“.
 3.3 das Listing besser einführen
 ✔3.3 „Definition“ heißt unterschiedliches, „Implementierung“
-3.3 „etwas Code“, was für Code?
-3.3 Sprung -> Sprungbefehl, oder Klammer ganz weglassen
+✔3.3 „etwas Code“, was für Code?
+✔3.3 Sprung -> Sprungbefehl, oder Klammer ganz weglassen
 3.3 der eingeschleuste Code äuft im Kernel-Mode
 3.4 bessere Einleitung
 ✔3.4 z. B. ist abk.

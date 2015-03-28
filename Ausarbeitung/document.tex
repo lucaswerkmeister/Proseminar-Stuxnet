@@ -284,9 +284,10 @@ etwa weil im Quelltext ein anderes Feld dahinter deklariert wurde, das ebenfalls
 
 Im Falle von CVE-2010-2743 findet der Sprung in die Funktionspointertabelle innerhalb von \texttt{win32k.sys} beim Laden einer Tastaturbelegung statt.
 Hinter der Funktionstabelle liegen hier nicht weitere Funktionspointer, sondern andere Daten.
-Stuxnet lädt nun diese Systemdatei und durchsucht diese Daten nach einem geeigneten \texttt{DWORD}, das auch als virtuelle Adresse interpretiert werden kann;
-ist ein solches \texttt{DWORD} gefunden, so allokiert Stuxnet Speicher an dieser Adresse und schreibt etwas ausführbaren Code dorthin
-(da der Platz an der Stelle begrenzt sein kann, wird nur ein Sprung an eine andere, frei wählbare Adresse geschrieben).
+Stuxnet lädt nun diese Systemdatei und durchsucht diese Daten nach einem geeigneten \texttt{DWORD}, das auch als virtuelle Adresse interpretiert werden kann.
+Stuxnet könnte dort nun seinen eigenen Code hinschreiben. Allerdings ist der Platz an der Stelle möglicherweise begrenzt.
+Stuxnet allokiert deshalb stattdessen freien Speicher und schreibt seinen Code dorthin.
+An die Zieladresse des gefundenen \texttt{DWORD} wird dann nur ein Sprungbefehl an diese Stelle geschrieben.
 Anschließend schreibt Stuxnet eine speziell korrupte Tastaturbelegungsdatei auf die Festplatte, die einen Sprung an das gefundene \texttt{DWORD} auslösen wird,
 und weist dann Windows an, diese Tastaturbelegung zu laden.
 Sobald \texttt{win32k.sys} (im Kernel-Mode laufend) versucht, in die Funktionstabelle zu springen,
