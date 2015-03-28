@@ -27,7 +27,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔2.2 WinCC was ist das?
 ✔3.1 „bestimmte“ ist unbestimmt, „rief präparierte URLs auf“
 ✔3.2 am Internet „hängen“
-3.2 das Zielsystem oder das eigene System
+✔3.2 das Zielsystem oder das eigene System
 3.3 nix „wir wollen“. „Wir stellen vor“.
 3.3 das Listing besser einführen
 3.3 „Definition“ heißt unterschiedliches, „Implementierung“
