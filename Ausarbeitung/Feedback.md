@@ -40,7 +40,7 @@ IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 3.4 „Stuxnet läuft […] durch“ – Zshg herstellen, führt priv esc aus Abschnitt X durch
 ✔4 nochmal Wir Wollen
 4 warum vergleichen?
-4 „extrem“ „sehr“
+✔4 „extrem“ „sehr“
 4 : er tarnt sich, ist zugeschnitten ... UND -> mehrere sätze
 4 die wodurch nötig wurden?
 4 (Existenz von Registry-Keys) klammern wegmachen (weglassen oder umformulieren: ob Step7 vorhanden, wird rausgefunden, indem Registry)
