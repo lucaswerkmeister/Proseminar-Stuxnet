@@ -9,6 +9,7 @@
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage{glossaries}
 
 \lstdefinestyle{c}{language=C,
 basicstyle=\footnotesize\ttfamily,
@@ -44,6 +45,11 @@ matchrangestart=t
 % http://www.latex-community.org/forum/viewtopic.php?f=4&t=2835
 \definecolor{lightGray}{rgb}{0.9, 0.9, 0.9}
 \newcommand{\Hilight}{\makebox[0pt][l]{\color{lightGray}\rule[-0.3em]{\linewidth}{1.2em}}}
+
+\makeglossaries
+
+\newacronym{plc}{PLC}{Programmable Logic Controller}
+\newacronym{rpc}{RPC}{Remote Procedure Call}
 
 \title{Stuxnet}
 \author{Lucas Werkmeister}
@@ -116,13 +122,13 @@ Daraus wird geschlossen, dass die Autoren des Programms mit dem Design moderner 
 
 Das SCADA-Programm steuert allerdings nicht direkt die Zentrifugen,
 sondern ist hauptsächlich ein Werkzeug zur Überwachung des Betriebs. % TKaC 9, Seite
-Die direkte Steuerung der Zentrifugen geschieht stattdessen durch sog. Programmable Logic Controllers (PLCs).
+Die direkte Steuerung der Zentrifugen geschieht stattdessen durch sog. \glspl{plc}.
 Dabei handelt es sich um einfache Prozessoren, die Signale von Sensoren verarbeiten,
 um Steuersignale zu setzen.
 In der Anlage von Natanz stammt dieser Teil des Systems von Siemens.
 Ein Controller steuert dabei jeweils etwa 100 Rotoren oder knapp 1000 Zentrifugenventile.
-Diese PLCs werden durch die Siemens-Software \emph{Step7} programmiert.
-Indem Stuxnet dieses Programm infizierte, konnte es eigene Codeblöcke auf die PLCs schreiben
+Diese \glspl{plc} werden durch die Siemens-Software \emph{Step7} programmiert.
+Indem Stuxnet dieses Programm infizierte, konnte es eigene Codeblöcke auf die \glspl{plc} schreiben
 und somit den physikalischen Angriff durchführen.
 
 \section{Physikalische Angriffe}
@@ -185,7 +191,7 @@ Stuxnet 1.x hingegen weist zusätzlich dazu eine breite Vielfalt von Verbreitung
 \item Verbreitung über Memorysticks beim Betrachten von Ordnern mit bestimmten \texttt{.lnk}-Dateien (CVE-2010-2568\cite{CVE_lnk}): ab Stuxnet 1.100
 \item Verbreitung über WinCC-Server (falls vorhanden) durch Ausnutzung eines hard-coded Server-Passworts (CVE-2010-2772\cite{CVE_wincc})
 \item Verbreitung über das SMB-Netzwerkdateisystem
-\item Verbreitung über Windows Server Service durch einen Fehler in RPC (Remote Procedure Call) (CVE-2008-4250\cite{CVE_rpc} / MS08-067\cite{MS_rpc})
+\item Verbreitung über Windows Server Service durch einen Fehler in \gls{rpc} (CVE-2008-4250\cite{CVE_rpc} / MS08-067\cite{MS_rpc})
 \item Verbreitung über den Printer Spooler (CVE-2010-2729\cite{CVE_spooler} / MS10-061\cite{MS_spooler})
 \end{itemize} % TODO welche davon sind zero-days?
 
@@ -236,7 +242,7 @@ Ist dies der Fall, so werden die Versionen verglichen und gegebenenfalls das Zie
 
 Außerdem können Stuxnet-Infektionen auch direkt über das Netzwerk kommunizieren.
 Stuxnet 0.5 verwendet dazu Mailslots, einen einfachen Mechanismus zur Interprozesskommunikation.
-Stuxnet 1.x started hingegen einen vollständigen RPC-Server und -Client (RPC=Remote Procedure Call), % TODO proper abbreviations?
+Stuxnet 1.x started hingegen einen vollständigen \gls{rpc}-Server und -Client, % TODO proper abbreviations?
 der verschiedene Programmroutinen bereitstellt und aufruft.
 
 Ferner können File Shares, die wie oben erwähnt zur Infektion genutzt werden,
@@ -311,7 +317,7 @@ Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspoi
 Stuxnet infizierte auch Step7 und verbreitete sich über Step7-Projekte,
 die zum Beispiel innerhalb der Anlage über USB-Sticks ausgetauscht wurden
 (Stuxnet 0.5 verbreitete sich sogar \emph{ausschließlich} auf diesem Weg).
-Außerdem wurde Step7 zur Infektion der PLCs genutzt, die dann letztlich den tatsächlichen, physikalischen Angriff durchführten.
+Außerdem wurde Step7 zur Infektion der \glspl{plc} genutzt, die dann letztlich den tatsächlichen, physikalischen Angriff durchführten.
 
 Um eine Step7-Installation beim Öffnen eines Projekts zu infizieren, nutzt Stuxnet eine Untrusted Search Path Vulnerability (CWE-426\cite{cwe_searchpath}).
 Durch eine manipulierte Konfigurationsdatei im Projekt wird Step7 veranlasst, eine bestimmte DLL-Datei zu laden.
@@ -325,11 +331,11 @@ Sobald Stuxnet auf dem System läuft, werden auch zwei Step7-DLLs mit eigenen Ve
 Die Stuxnet-Variante deklariert die gleichen Funktionen wie die Original-DLLs,
 und die meisten der Funktionen leiten beim Aufruf auch nur an die Original-DLLs weiter,
 welche umbenannt zu diesem Zweck weiterhin zur Verfügung stehen.
-Einige Funktionen jedoch werden modifiziert, um die PLCs zu infizieren:
-Dabei handelt es sich um Funktionen, die PLC-Blöcke schreiben, lesen und auflisten.
-Indem Stuxnet diese Funktionen abfängt, kann es nicht nur eigenen Code auf die PLCs schreiben,
+Einige Funktionen jedoch werden modifiziert, um die \glspl{plc} zu infizieren:
+Dabei handelt es sich um Funktionen, die \gls{plc}-Blöcke schreiben, lesen und auflisten.
+Indem Stuxnet diese Funktionen abfängt, kann es nicht nur eigenen Code auf die \glspl{plc} schreiben,
 sondern auch verhindern, dass dieser Code entdeckt wird, indem er beim Lesen wieder herausgefiltert wird.
-In anderen Worten, von einem infizierten System aus ist die Infektion der PLCs nicht zu erkennen.
+In anderen Worten, von einem infizierten System aus ist die Infektion der \glspl{plc} nicht zu erkennen.
 
 % TODO erwähnen, wie spät gefixt? dass deshalb informationslage schlecht?
 
@@ -371,7 +377,7 @@ Die Command-and-Control-Fähigkeiten sind ebenfalls weiter fortgeschritten.
 Stuxnet lädt nicht nur neuen Code herunter, sondern meldet zuvor auch verschiedene Informationen über sein Hostsystem,
 inklusive Betriebssystem, Host- und Domainnamen, und ob bestimmte Registry-Keys, die auf eine Installation von Step7 oder WinCC hindeuten, vorhanden sind.
 Auch die Kommunikation unter Stuxnet-Infektionen ist ausgereifter:
-anstelle einfacher Mailslots wird ein RPC-Server aufgesetzt, der zehn verschiedene Routinen bereitstellt. % dossier p. 25
+anstelle einfacher Mailslots wird ein \gls{rpc}-Server aufgesetzt, der zehn verschiedene Routinen bereitstellt. % dossier p. 25
 
 Die Ausführung des tatsächlichen Angriffs steht in starkem Kontrast dazu:
 der Angriff, der in Stuxnet 1.x verwendet wird (Manipulation der Rotorgeschwindigkeit),
@@ -380,7 +386,7 @@ Der Angriff aus Stuxnet 0.5 ist weiterhin vorhanden, aber unerreichbar, und wurd
 Die Einfachkeit des Angriffs hat den Vorteil, dass er relativ robust gegen Änderungen an der Anlage ist, die den 0.5-Angriff außer Gefecht gesetzt hätten.
 Allerdings ist der Angriff auch leichter zu bemerken:
 Ein Ingenieur, der sich ohne Gehörschutz in der Anlage befindet, würde die Beschleunigung und Bremsung der Zentrifugen leicht hören.
-Dies wird dadurch noch verstärkt, dass Stuxnet versucht, über ein infiziertes WinCC-System (falls vorhanden) den Angriff über mehrere PLCs hinweg zu synchronisieren.
+Dies wird dadurch noch verstärkt, dass Stuxnet versucht, über ein infiziertes WinCC-System (falls vorhanden) den Angriff über mehrere \glspl{plc} hinweg zu synchronisieren.
 Diese Synchronisierung verursacht außerdem Netzwerk-Traffic – alle 5 Sekunden – der den Aufsehern der Anlage hätte auffallen müssen.
 
 Es ist also offensichtlich, dass sich zwischen Stuxnet 0.5 und 1.x der Fokus der Entwicklung
