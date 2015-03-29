@@ -399,16 +399,29 @@ Ein Ingenieur, der sich ohne Gehörschutz in der Anlage befindet, würde die Bes
 Dies wird dadurch noch verstärkt, dass Stuxnet versucht, über ein infiziertes WinCC-System (falls vorhanden) den Angriff über mehrere \glspl{plc} hinweg zu synchronisieren.
 Diese Synchronisierung verursacht außerdem Netzwerk-Traffic – alle 5 Sekunden – der den Aufsehern der Anlage hätte auffallen müssen.
 
-Es ist also offensichtlich, dass sich zwischen Stuxnet 0.5 und 1.x der Fokus der Entwicklung
-von der physikalischen Sabotage der Anlage zur Infektion ihrer Systeme verschob.
-Gleichzeitig legten die Entwickler geringeren Wert darauf, nicht entdeckt zu werden.
-Es wird spekuliert, dass eine Enthüllung von Stuxnet nicht nur in Kauf genommen wurde,
-sondern sogar in einem gewissen Maße beabsichtigt war:
-Stuxnet demonstriert deutlich, dass Cyber-Kriegsführung möglich und erfolgreich ist,
-und es mag im Interesse der Stuxnet-Entwickler (mutmaßlich der USA) gewesen sein,
-dass diese erste öffentliche Demonstration nicht von einem anderen Staat kam
-(vergleichbar zum Space Race der USA mit der Sowjetunion,
-wo letztere den USA mit Juri Gagarin als erstem Menschen im All zuvorkamen). % TKaC 16
+\section{Zusammenfassung und Ausblick}
+
+Wir sehen also, dass der Schwerpunkt der Entwicklung sich zwischen Stuxnet 0.5 und 1.x deutlich verschob:
+stand bei Stuxnet 0.5 die physikalische Sabotage im Vordergrund, so war die Entwicklung von Stuxnet 1.x klar auf den IT-Aspekt der Infektion der Systeme der Anlage konzentriert.
+Stuxnet 0.5 wirkt dabei wie ein Prototyp, der die Möglichkeiten der physikalischen Sabotage ausloten sollte.
+Nachdem dann feststand, dass diese Sabotage möglich war, wurde die Entwicklung an ein anderes Team übergeben,
+das auf einer anderen Entwicklungsplattform (Tilded\cite{05}) an den verschiedenen IT-Angriffen arbeitete.
+
+Das Ziel dieser Arbeit war, neben der Sabotage des iranischen Atomprogramms, erneut die Auslotung von Möglichkeiten:
+diesmal jedoch der Möglichkeiten einer ``Cyber-Waffe'', die gezielt und unerkannt ein gegnerisches IT-System angreift und infiziert.
+Geht man von den USA als Urheber von Stuxnet aus, so ergibt es Sinn, dass sie diese Möglichkeiten erkunden wollten,
+aus Angst, auf dem neuen Gebiet der digitalen Kriegsführung zurückzufallen (vergleichbar zum Space Race während des kalten Krieges).
+
+Unter diesem Gesichtspunkt ist es auch weniger überraschend, dass die Entdeckungsgefahr von Stuxnet 1.x wesentlich höher ist als die von Stuxnet 0.5.
+Es mag attraktiv erschienen sein, als Urheber der ersten solchen digitalen Waffe zu gelten,
+selbst wenn man sich nicht offiziell zu dem Angriff bekennen würde.
+Die Tarnung musste also nur gut genug sein, damit die Angreifer eine Beteiligung glaubhaft bestreiten konnten.
+
+Stuxnet ist also das erste bekannte Beispiel einer digitalen Waffe, die zum Angriff auf ein Ziel eines anderen Landes genutzt wurde.
+Andere sollten folgen, etwa ``Flame'' und ``Duqu''.
+Zweifellos sind auch weitere solche Angriffe im Gange, die noch nicht entdeckt wurden.
+
+TODO: Die letzten paar Sätze fehlen noch, ich weiß nicht genau, wie ich aufhören soll…
 
 \bibliographystyle{plain}
 \bibliography{document}
