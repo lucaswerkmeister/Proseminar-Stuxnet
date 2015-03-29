@@ -29,7 +29,7 @@ File Shares -> SMB Verbindung herstellen
 ✔3.2 am Internet „hängen“
 ✔3.2 das Zielsystem oder das eigene System
 ✔3.3 nix „wir wollen“. „Wir stellen vor“.
-3.3 das Listing besser einführen
+✔3.3 das Listing besser einführen
 ✔3.3 „Definition“ heißt unterschiedliches, „Implementierung“
 ✔3.3 „etwas Code“, was für Code?
 ✔3.3 Sprung -> Sprungbefehl, oder Klammer ganz weglassen
