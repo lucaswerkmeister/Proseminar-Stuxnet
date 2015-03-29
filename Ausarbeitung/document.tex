@@ -76,17 +76,24 @@ Sie unterscheidet sich signifikant von Stuxnet 1.x und ist auch deutlich älter:
 tatsächlich wurde Stuxnet 0.5 bereits 2007 auf der Antivirus-Plattform VirusTotal hochgeladen, aber nicht als Schädling erkannt.
 Die Domains, zu denen Stuxnet 0.5 Kontakt aufnimmt (Command-and-Control), wurden sogar bereits 2005 registriert.
 
-Wir werden im Folgenden bestimmte Komponenten von Stuxnet untersuchen und anschließend diese beiden Versionen vergleichen.
+Wir wollen einen Vergleich zwischen diesen beiden Versionen von Stuxnet anstellen.
+Dabei erklären wir zunächst Grundlagen der Urananreicherung, die zum Verständnis von Stuxnet notwendig sind,
+wobei wir auch auf Besonderheiten des Systems im Iran eingehen.
+Anschließend stellen wir beide Versionen von Stuxnet zunächst allgemein vor und gehen dann auf bestimmte Komponenten genauer ein.
+Im Vergleich werden wir dann feststellen, dass sich zwischen der Entwicklung von Stuxnet 0.5 und 1.x
+der Fokus der Entwicklung von der physikalischen Sabotage zu den informationstechnischen Angriffen verschob.
 
 \section{Grundlagen der iranischen Urananreicherung}
 
-\subsection{Urananreicherung}
+\subsection{Motivation und Funktionsweise der Urananreicherung}
 
-Natürlich vorkommendes Uran besteht zu etwa 99\% aus dem Isotop $^{238}\mathrm U$ und zu etwa 1\% aus $^{235}\mathrm U$.
-Nur letzteres Isotop ist zu einer Kernspaltungs-Kettenreaktion fähig.
+Uran wird hauptsächlich für zwei Zwecke genutzt: zivile Nutzung durch Atomkraftwerke, und militärische Nutzung durch Nuklearwaffen.
+Für beide Zwecke ist natürlich vorkommendes Uran,
+welches zu etwa 99\% aus dem Isotop $^{238}\mathrm U$ und zu etwa 1\% aus $^{235}\mathrm U$ besteht, ungeeignet,
+weil nur das letztere Isotop zu einer Kernspaltungs-Kettenreaktion fähig ist.
 Sein Anteil muss zur Energiegewinnung auf 3-5\%, für Nuklearwaffen sogar auf über 85\% erhöht werden.
 Diese \emph{Anreicherung} des Urans geschieht üblicherweise durch Gaszentrifugen.
-Dabei wird das Gas $\mathrm{UF}_6$, Uranhexafluorid, in einer Zentrifuge zur Rotation gebracht.
+Dabei wird das Gas $\mathrm{UF}_6$, Uranhexafluorid, bei niedrigem Druck (2-5mBar) in einer Zentrifuge zur Rotation gebracht.
 Fluor kommt als \emph{Reinelement} in der Natur ausschließlich als $^{19}F$ vor,
 jegliche Gewichtsvariation unter den $\mathrm{UF}_6$-Molekülen ist also durch das enthaltene Uran verursacht.
 In den Zentrifugen sammelt sich daher aufgrund der Zentrifugalkraft das $\mathrm{UF}_6$ mit dem erwünschten $^{235}\mathrm U$ innen,
@@ -95,7 +102,7 @@ Durch Wiederholung dieses Prozesses in einer Reihe von Zentrifugen wird das Uran
 
 \subsection{Aufbau der Anlage im Iran}
 
-Die Zentrifuge, die im Iran verwendet wird, ist das Modell \emph{IR-1}, ein europäisches Modell der späten sechziger Jahre.
+Die Zentrifuge, die im iranischen Nuklearprogramm verwendet wird, ist das Modell \emph{IR-1}, ein europäisches Modell der späten sechziger Jahre.
 Die Zentrifuge gilt als veraltet. Ihr Hauptvorteil für Iran ist, dass sie massenhaft produziert werden kann.
 Das ist wichtig, weil es Iran nie gelungen ist, die Zentrifuge zuverlässig zu betreiben:
 obwohl die Ingenieure den Innendruck der Zentrifuge soweit gesenkt haben, dass sie nur noch die Hälfte ihrer theoretischen Maximalkapazität erreicht,

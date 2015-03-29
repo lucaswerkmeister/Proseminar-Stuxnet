@@ -1,7 +1,7 @@
 ✔Weniger ;
 ✔Kurze Sätze i. O.
 ✔() -> Satz, Nebensatz (Klammern für Abk.)
-Outline ausführlicher (letzter Absatz Einführung)
+✔Outline ausführlicher (letzter Absatz Einführung)
 Allgemein Abschnitte anfänglich motivieren
 Mehr verbinden
 Kapitel Zusammenfassung (inkl. Recap der Abschnitte)
