@@ -59,10 +59,10 @@ matchrangestart=t
 Stuxnet ist ein Computerwurm, der im Sommer 2010 entdeckt wurde.
 Sein Ziel ist es, die iranische Urananreicherungsanlage in Natanz (und möglicherweise andere, etwa Buschehr) zu sabotieren.
 Aufgrund seiner geschätzten Entwicklungszeit von 6 Monaten und 10 Entwicklern (plus Management, Testen, etc.),
-die für einen Computerschädling enorm ist, sowie verschiedener anderer Faktoren
-(etwa der Tatsache, dass zum Testen der Sabotage ein Nachbau einer Urananreicherungsanlage inklusive echtem Uran nötig gewesen sein muss),
-wird geschätzt, dass der Urheber dieses Schädlings ein Staat sein muss;
-als wahrscheinlichster Kandidat gelten die USA.
+die für einen Computerschädling enorm ist, sowie verschiedener anderer Faktoren,
+etwa der Tatsache, dass zum Testen der Sabotage ein Nachbau einer Urananreicherungsanlage inklusive echtem Uran nötig gewesen sein muss,
+wird geschätzt, dass der Urheber dieses Schädlings ein Staat sein muss.
+Als wahrscheinlichster Urheber gelten die USA.
 Mehrere Versionen (1.001, 1.100, 1.101) waren im Umlauf, die sich aber nur geringfügig unterscheiden.
 
 2013 wurde eine Vorgängerversion von Stuxnet entdeckt, die die Versionsnummer 0.5 trägt.
@@ -81,7 +81,7 @@ Nur letzteres Isotop ist zu einer Kernspaltungs-Kettenreaktion fähig.
 Sein Anteil muss zur Energiegewinnung auf 3-5\%, für Nuklearwaffen sogar auf über 85\% erhöht werden.
 Diese \emph{Anreicherung} des Urans geschieht üblicherweise durch Gaszentrifugen.
 Dabei wird das Gas $\mathrm{UF}_6$, Uranhexafluorid, in einer Zentrifuge zur Rotation gebracht.
-Fluor kommt als \emph{Reinelement} in der Natur ausschließlich als $^{19}F$ vor;
+Fluor kommt als \emph{Reinelement} in der Natur ausschließlich als $^{19}F$ vor,
 jegliche Gewichtsvariation unter den $\mathrm{UF}_6$-Molekülen ist also durch das enthaltene Uran verursacht.
 In den Zentrifugen sammelt sich daher aufgrund der Zentrifugalkraft das $\mathrm{UF}_6$ mit dem erwünschten $^{235}\mathrm U$ innen,
 während $\mathrm{UF}_6$ mit $^{238}\mathrm U$ außen entnommen werden kann.
@@ -90,7 +90,7 @@ Durch Wiederholung dieses Prozesses in einer Reihe von Zentrifugen wird das Uran
 \subsection{Aufbau der Anlage im Iran}
 
 Die Zentrifuge, die im Iran verwendet wird, ist das Modell \emph{IR-1}, ein europäisches Modell der späten sechziger Jahre.
-Die Zentrifuge gilt als veraltet; ihr Hauptvorteil für Iran ist, dass sie massenhaft produziert werden kann.
+Die Zentrifuge gilt als veraltet. Ihr Hauptvorteil für Iran ist, dass sie massenhaft produziert werden kann.
 Das ist wichtig, weil es Iran nie gelungen ist, die Zentrifuge zuverlässig zu betreiben:
 obwohl die Ingenieure den Innendruck der Zentrifuge soweit gesenkt haben, dass sie nur noch die Hälfte ihrer theoretischen Maximalkapazität erreicht,
 gehen die Zentrifugen regelmäßig kaputt.
@@ -99,29 +99,30 @@ Ein normaler Prozess zur Urananreicherung verträgt den Ausfall von Zentrifugen 
 Um dieses Problem zu umgehen, sind in den iranischen Anlagen Ventile an den Ein- und Ausgängen jeder Zentrifuge angebracht.
 Fällt eine Zentrifuge aus, so kann sie durch die Ventile sofort vom restlichen Vorgang abgetrennt werden.
 Da die Zentrifuge massenhaft produziert werden kann, steht Ersatz sofort zur Verfügung
-(zu einem Zeitpunkt waren 4000 Zentrifugen im Einsatz und 5000 in Reserve\cite{tkac}), % p. 15
+– zu einem Zeitpunkt waren 4000 Zentrifugen im Einsatz und 5000 in Reserve\cite{tkac} – % p. 15
 so dass die Zentrifuge direkt ausgetauscht werden kann.
 Anschließend kann der Betrieb normal weiterlaufen.
 
 \subsection{Steuerung der Anlage}
 
 Die Urananreicherungsanlage wird durch sogenannte SCADA-Software kontrolliert.
-Es ist unbekannt, welche Software genau im Iran zum Einsatz kommt;
-nach einer Analyse von Langner\cite{tkac} handelt es sich aber um keines der üblichen Programme, % TODO exact cite
-sondern um eine eigene Software.
-Das Programm wird als amateurhaft eingestuft;
-seine Autoren seien wohl mit modernem SCADA-Design wenig vertraut. % TODO ref
+Es ist unbekannt, welche Software genau im Iran zum Einsatz kommt.
+Nach einer Analyse von Langner\cite{tkac} handelt es sich aber um keines der üblichen Programme,
+sondern um eine speziell für Iran geschriebene Software.
+Das Programm wird als amateurhaft eingestuft.
+So sind etwa mehrmals Dialogboxen zu sehen, von deren Einsatz die Industrie abgerückt ist, weil sie andere Information verdecken können.
+Auch werden Standardbezeichnungen nicht verwendet.
+Daraus wird geschlossen, dass die Autoren des Programms mit dem Design moderner SCADA-Software wohl wenig vertraut seien.
 
-Das SCADA-Programm steuert allerdings nicht direkt die Zentrifugen;
-es ist hauptsächlich ein Werkzeug zur Überwachung des Betriebs. % TKaC 9, Seite
+Das SCADA-Programm steuert allerdings nicht direkt die Zentrifugen,
+sondern ist hauptsächlich ein Werkzeug zur Überwachung des Betriebs. % TKaC 9, Seite
 Die direkte Steuerung der Zentrifugen geschieht stattdessen durch sog. Programmable Logic Controllers (PLCs).
 Dabei handelt es sich um einfache Prozessoren, die Signale von Sensoren verarbeiten,
 um Steuersignale zu setzen.
-In der Anlage von Natanz stammt dieser Teil des Systems von Siemens;
-der S7-315 Controller steuert die Rotoren der Zentrifugen selbst (164 Motoren pro Controller), % TKaC 12
-der S7-417 Controller die Ventile, welche den Zu- und Abfluss von $\mathrm{UF}_6$ regeln (984 Zentrifugen pro Controller).
-Diese PLCs werden durch die Siemens-Software \emph{Step7} (Eigenschreibweise \emph{STEP7}) programmiert;
-indem Stuxnet dieses Programm infizierte, konnte es eigene Codeblöcke auf die PLCs schreiben
+In der Anlage von Natanz stammt dieser Teil des Systems von Siemens.
+Ein Controller steuert dabei jeweils etwa 100 Rotoren oder knapp 1000 Zentrifugenventile.
+Diese PLCs werden durch die Siemens-Software \emph{Step7} (Eigenschreibweise \emph{STEP7}) programmiert.
+Indem Stuxnet dieses Programm infizierte, konnte es eigene Codeblöcke auf die PLCs schreiben
 und somit den physikalischen Angriff durchführen.
 
 \section{Physikalische Angriffe}
@@ -145,8 +146,8 @@ Um dies vor den Operatoren der Anlage zu verbergen,
 werden alte Sensordaten abgespielt, die Stuxnet vor Beginn des Angriffs aufzeichnet.
 
 Würde Stuxnet nun nichts weiter tun, so würden die Zentrifugen durch den steigenden Druck schließlich zerstört werden.
-Da aber ein Controller sehr viele Zentrifugen regelt (siehe open), würde dies für viele Zentrifugen fast zeitgleich geschehen;
-dieses abnormale Verhalten würde auffallen und Stuxnet in einer Post-Mortem-Analyse vermutlich enttarnt werden.
+Da aber ein Controller sehr viele Zentrifugen regelt (siehe open), würde dies für viele Zentrifugen fast zeitgleich geschehen.
+Dieses abnormale Verhalten würde auffallen und Stuxnet in einer Post-Mortem-Analyse vermutlich enttarnt werden.
 Stuxnet bricht deshalb den Angriff nach einer Weile ab.
 Dadurch verursacht dieser Angriff eine höhere Belastung der Anlage,
 die durch eine höhere Ausfallrate der Zentrifugen langfristig den gleichen Schaden verursacht,
@@ -160,12 +161,13 @@ Der Angriff läuft etwa monatlich und wechselt zwischen zwei Zuständen:
 im ersten werden die Rotoren für 15 Minuten um gut ein Drittel auf 84600rpm (1410Hz) beschleunigt,
 im zweiten werden über einen Zeitraum von 50 Minuten erst nahezu angehalten (120rpm, 2Hz) und dann wieder hochgefahren.
 Die IR-1-Zentrifuge läuft als \emph{superkritisches} Design im Normalbetrieb bereits über gewissen \emph{kritischen Geschwindigkeiten}
-(entsprechend der Resonanzfrequenz des Systems), bei denen durch Resonanzen Vibrationen des Rotors auftreten können.
+(entsprechend der Resonanzfrequenz des Systems), bei denen durch Resonanzen starke Vibrationen des Rotors auftreten können.
 Wenn der Rotor nun im zweiten Zustand beinahe angehalten und wieder angefahren wird,
 durchläuft er auch diese kritischen Frequenzen, mit dem Ergebnis einer noch höheren Ausfallwahrscheinlichkeit.
 
 Stuxnet versucht ebenfalls, die Steuerungssoftware WinCC (falls in der Anlage vorhanden) zu verwenden, um den Angriff zwischen mehreren Controllern zu synchronisieren.\cite{dossier} % TODO exact cite
-Dazu werden alle fünf Sekunden Pakete über das Netzwerk ausgetauscht; dieser Traffic sollte bei guter Aufsicht der Anlage nicht zu übersehen sein.
+Dazu werden alle fünf Sekunden Pakete über das Netzwerk ausgetauscht.
+Dieser Traffic sollte bei guter Aufsicht der Anlage nicht zu übersehen sein.
 Dies, zusammen mit der Tatsache, dass die simultane Beschleunigung oder Abbremsung ganzer Reihen von Zentrifugen gut zu hören ist
 (ein Controller steuert viele Zentrifugen, siehe oben) – noch verstärkt durch die Synchronisierung zwischen Controllern –
 lässt vermuten, dass zur Entwicklung von Stuxnet 1.x weniger Wert darauf gelegt wurde, unentdeckt zu bleiben.
@@ -201,10 +203,10 @@ Für Stuxnet 0.5 wurde eine fiktive Werbeagentur ``MediaSuffix'' eingerichtet, d
 \item \texttt{ad-marketing.net}
 \end{itemize}
 
-Die Server hinter den Domains standen in den Vereinigten Staaten, Kanada, Frankreich und Thailand; % 0.5 p. 4
-die Domains sind heute alle entweder anderen Betreibern zugeordnet oder unerreichbar.
+Die Server hinter den Domains standen in den Vereinigten Staaten, Kanada, Frankreich und Thailand. % 0.5 p. 4
+Die Domains sind heute alle entweder anderen Betreibern zugeordnet oder unerreichbar.
 
-Normale Besucher sahen dort nur eine nichtssagende Hauptseite\cite{archive_best_advertising};
+Normale Besucher sahen dort nur eine nichtssagende Hauptseite\cite{archive_best_advertising}.
 Stuxnet hingegen konnte auf einigen Unterseiten mit präparierten URLs eine Infektion zurückmelden oder Updates anfordern.
 
 Für Stuxnet 1.x wurde eine neue Tarnung genutzt, offenbar für eine Sport\-wet\-ten-Agentur unter folgenden Domains:
@@ -219,9 +221,9 @@ Un\-glück\-li\-cher\-wei\-se ist der damalige Inhalt dieser Seiten unbekannt,
 da das Internet Archive sie erst seit 2011 archiviert,
 nachdem sie bereits umgeleitet wurden, um weitere Stuxnet-Updates zu verhindern.
 
-Auch Stuxnet 1.x rief präparierte URLs auf;
-der Vorgang ist jedoch komplexer als bei Stuxnet 0.5.
-Stuxnet sendet mehr Daten über das Hostsystem (zum Beispiel Betriebssystemversion, Hostname),
+Auch Stuxnet 1.x rief präparierte URLs auf,
+allerdings ist der Vorgang komplexer als bei Stuxnet 0.5.
+Stuxnet sendet mehr Daten über das Hostsystem (etwa Betriebssystemversion und Hostname),
 und die Kommunikation ist in beide Richtungen durch XOR-Verknüpfung mit statischen 31-Bit-Schlüsseln geschützt.
 
 \subsection{Updates verteilen}
@@ -229,11 +231,11 @@ und die Kommunikation ist in beide Richtungen durch XOR-Verknüpfung mit statisc
 Da das schlussendliche Zielsystem von Stuxnet aus Sicherheitsgründen nicht direkt mit dem Internet verbunden ist,
 müssen Updates über mehrere Stuxnet-Infektionen propagiert werden.
 
-Stuxnet überprüft dazu vor jeder potenziellen Neuinfektion, ob das Zielsystem bereits infiziert ist;
-ist dies der Fall, so werden die Versionen verglichen und gegebenenfalls das Zielsystem oder das eigene System aktualisiert.
+Stuxnet überprüft dazu vor jeder potenziellen Neuinfektion, ob das Zielsystem bereits infiziert ist.
+Ist dies der Fall, so werden die Versionen verglichen und gegebenenfalls das Zielsystem oder das eigene System aktualisiert.
 
 Außerdem können Stuxnet-Infektionen auch direkt über das Netzwerk kommunizieren.
-Stuxnet 0.5 verwendet dazu Mailslots, einen einfachen Mechanismus zur Interprozesskommunikation;
+Stuxnet 0.5 verwendet dazu Mailslots, einen einfachen Mechanismus zur Interprozesskommunikation.
 Stuxnet 1.x started hingegen einen vollständigen RPC-Server und -Client (RPC=Remote Procedure Call), % TODO proper abbreviations?
 der verschiedene Programmroutinen bereitstellt und aufruft.
 
@@ -260,8 +262,8 @@ In C kann sie so aussehen:
 Anderer Code muss somit nur noch die Indizes (Opcodes) der einzelnen Operationen kennen, nicht mehr die Funktionen, die tatsächlich ausgeführt werden.
 
 Allerdings ist das Verhalten von \texttt{execute()} undefiniert, wenn ein ungültiger Index eingegeben wird.
-In diesem Fall wird Speicher gelesen, der nicht Teil der Funktionspointertabelle ist und vermutlich keinen gültigen Pointer in eine ausführbare Seite enthält;
-das Ergebnis ist dann ein Segmentation Fault.
+In diesem Fall wird Speicher gelesen, der nicht Teil der Funktionspointertabelle ist und vermutlich keinen gültigen Pointer in eine ausführbare Seite enthält.
+Ein Versuch, an diese vermeintliche Adresse zu springen, führt zu einem Segmentation Fault.
 
 \lstinputlisting[
   language=C,
@@ -271,7 +273,8 @@ das Ergebnis ist dann ein Segmentation Fault.
   escapechar=\%
 ]{../functionPointerDemo2/02-broken.c}
 
-Dies ist allerdings nicht zwingend gegeben; es ist durchaus möglich, dass an der richtigen Stelle ein Funktionspointer liegt,
+Dies ist allerdings nicht immer der Fall.
+Es ist durchaus möglich, dass an der richtigen Stelle ein Funktionspointer liegt,
 etwa weil im Quelltext ein anderes Feld dahinter deklariert wurde, das ebenfalls einen Funktionspointer enthält:
 
 \lstinputlisting[
@@ -285,7 +288,7 @@ etwa weil im Quelltext ein anderes Feld dahinter deklariert wurde, das ebenfalls
 Im Falle von CVE-2010-2743 findet der Sprung in die Funktionspointertabelle innerhalb von \texttt{win32k.sys} beim Laden einer Tastaturbelegung statt.
 Hinter der Funktionstabelle liegen hier nicht weitere Funktionspointer, sondern andere Daten.
 Stuxnet lädt nun diese Systemdatei und durchsucht diese Daten nach einem geeigneten \texttt{DWORD}, das auch als virtuelle Adresse interpretiert werden kann.
-Stuxnet könnte dort nun seinen eigenen Code hinschreiben. Allerdings ist der Platz an der Stelle möglicherweise begrenzt.
+Stuxnet könnte dort nun seinen eigenen Code hinschreiben, allerdings ist der Platz an der Stelle möglicherweise begrenzt.
 Stuxnet allokiert deshalb stattdessen freien Speicher und schreibt seinen Code dorthin.
 An die Zieladresse des gefundenen \texttt{DWORD} wird dann nur ein Sprungbefehl an diese Stelle geschrieben.
 Anschließend schreibt Stuxnet eine speziell korrupte Tastaturbelegungsdatei auf die Festplatte, die einen Sprung an das gefundene \texttt{DWORD} auslösen wird,
@@ -314,8 +317,8 @@ Um eine Step7-Installation beim Öffnen eines Projekts zu infizieren, nutzt Stux
 Durch eine manipulierte Konfigurationsdatei im Projekt wird Step7 veranlasst, eine bestimmte DLL-Datei zu laden.
 Dabei sucht Step7 zwar erst auf dem System selbst (in der Step7-Installation sowie in verschiedenen Windows-Ordnern), % dossier p. 33
 aber wenn die Datei dort nicht gefunden wird, sucht Step7 auch innerhalb des Pro\-jekt\-ord\-ners.
-Dabei wird dann eine DLL gefunden, die von Stuxnet zuvor abgelegt wurde;
-diese entschlüsselt und lädt wiederum eine andere Datei innerhalb des Projekts, welche den Haupt-Stuxnet-Code enthält.
+Dabei wird dann eine DLL gefunden, die von Stuxnet zuvor abgelegt wurde.
+Diese entschlüsselt und lädt wiederum eine andere Datei innerhalb des Projekts, welche den Haupt-Stuxnet-Code enthält.
 Stuxnet läuft nun auf dem System und führt die restliche Infektion (Privilege Escalation, Infektion anderer Prozesse) durch.
 
 Sobald Stuxnet auf dem System läuft, werden auch zwei Step7-DLLs mit eigenen Versionen ersetzt.
@@ -335,15 +338,15 @@ In anderen Worten, von einem infizierten System aus ist die Infektion der PLCs n
 Wir vergleichen nun die Stuxnet-Versionen 0.5 und 1.x hinsichtlich ihrer Aggressivität und Verbreitungsweisen.
 
 Stuxnet 0.5 verbreitet sich, wie schon erwähnt, ausschließlich über Step7-Infektionen.
-Die Command-and-Control-Möglichkeiten sind darauf beschränkt, neuen Code herunterzuladen und auszuführen;
-dies ist zwar ausreichend, um später eine neue Version mit weiterreichenden C\&C-Möglichkeiten (zum Beispiel Rück\-mel\-dung des Hostsystems) zu installieren,
+Die Command-and-Control-Möglichkeiten sind darauf beschränkt, neuen Code herunterzuladen und auszuführen.
+Dies ist zwar ausreichend, um später eine neue Version mit weiterreichenden C\&C-Möglichkeiten (zum Beispiel Rück\-mel\-dung des Hostsystems) zu installieren,
 zeigt aber, dass solche Fähigkeiten bei der Entwicklung von Stuxnet für unwichtig erachtet wurden.
 Eine Verbreitung von Updates über das Netzwerk, um auch Computer zu erreichen, die keinen direkten Zugang zum Internet haben,
 findet zwar statt, ist aber ebenfalls einfach gehalten.
-Der tatsächliche Angriff auf die Zentrifugen ist hingegen sehr fortgeschritten:
-er tarnt sich durch Abspielen von alten Sensordaten,
-ist sehr präzise auf das Layout der Anlage zugeschnitten, so dass jegliche Änderung – unterschiedliche Zentrifugenanzahl, andere Anordnung der Stufen – ein Versagen des Angriffs zur Folge gehabt hätte,
-und achtet sorgfältig darauf, unauffällig zu bleiben, indem der Angriff unterbrochen wird, bevor zu viele Zentrifugen auf einmal zerstört werden.
+Der tatsächliche Angriff auf die Zentrifugen ist hingegen sehr fortgeschritten.
+Er tarnt sich, indem an die SCADA-Software alte Sensordaten abgespielt werden.
+Er ist auch sehr präzise auf das Layout der Anlage zugeschnitten, so dass jegliche Änderung der Anlage – unterschiedliche Zentrifugenanzahl, andere Anordnung der Stufen – ein Versagen des Angriffs zur Folge gehabt hätte.
+Ferner wird sorgfältig darauf geachtet, unauffällig zu bleiben, indem der Angriff unterbrochen wird, bevor zu viele Zentrifugen auf einmal zerstört werden.
 Es ist offensichtlich, dass bei Stuxnet 0.5 der Hauptentwicklungsaufwand auf diesen Angriff verwendet wurde,
 während man für die Verbreitung keinen höheren Aufwand als nötig betrieb.
 
@@ -361,29 +364,28 @@ während man für die Verbreitung keinen höheren Aufwand als nötig betrieb.
 
 Vollkommen anders ist die Situation bei Stuxnet 1.x.
 Die Infektion von Step7 wurde unverändert übernommen (zur Laufzeit werden allerdings durch die Stuxnet-DLL mehr Funktionen abgefangen),
-aber eine Vielzahl an Infektionswegen kam hinzu, einschließlich mehrerer Privilege Escalations, die dadurch nötig wurden (siehe \autoref{fig:vergleich}).
-Stuxnet 1.x nutzt \emph{vier} Zero-Day-Exploits aus, eine enorm hohe Anzahl, die nie zuvor in Schädlingen nachgewiesen wurde
-(die meiste Malware nutzt bekannte Sicherheitslücken; selbst ein Zero-Day-Exploit ist bereits selten).
-Die Command-and-Control-Fähigkeiten sind ebenfalls weiter fortgeschritten;
-Stuxnet lädt nicht nur neuen Code herunter (der, je nach Angabe des Servers, entweder im aktuellen oder per RPC in einem anderen Prozess ausgeführt wird),
-sondern meldet zuvor auch verschiedene Informationen über sein Hostsystem,
+aber eine Vielzahl an Infektionswegen kam hinzu, einschließlich mehrerer Privilege Escalations (siehe \autoref{fig:vergleich}).
+Stuxnet 1.x nutzt \emph{vier} Zero-Day-Exploits aus, eine enorm hohe Anzahl, die nie zuvor in Schädlingen nachgewiesen wurde –
+die meiste Malware nutzt bekannte Sicherheitslücken, und selbst ein Zero-Day-Exploit ist bereits selten.
+Die Command-and-Control-Fähigkeiten sind ebenfalls weiter fortgeschritten.
+Stuxnet lädt nicht nur neuen Code herunter, sondern meldet zuvor auch verschiedene Informationen über sein Hostsystem,
 inklusive Betriebssystem, Host- und Domainnamen, und ob bestimmte Registry-Keys, die auf eine Installation von Step7 oder WinCC hindeuten, vorhanden sind.
 Auch die Kommunikation unter Stuxnet-Infektionen ist ausgereifter:
 anstelle einfacher Mailslots wird ein RPC-Server aufgesetzt, der zehn verschiedene Routinen bereitstellt. % dossier p. 25
 
 Die Ausführung des tatsächlichen Angriffs steht in starkem Kontrast dazu:
 der Angriff, der in Stuxnet 1.x verwendet wird (Manipulation der Rotorgeschwindigkeit),
-ist viel einfacher gehalten (der Angriff aus Stuxnet 0.5 ist weiterhin vorhanden, aber unerreichbar, und wurde zum Zeitpunkt der Untersuchung von Stuxnet 1.x für unfertig gehalten\cite{dossier}).
-Dies hat den Vorteil, dass der Angriff relativ robust gegen Änderungen an der Anlage ist, die den 0.5-Angriff außer Gefecht gesetzt hätten.
+ist viel einfacher gehalten.
+Der Angriff aus Stuxnet 0.5 ist weiterhin vorhanden, aber unerreichbar, und wurde zum Zeitpunkt der Untersuchung von Stuxnet 1.x für unfertig gehalten\cite{dossier}.
+Die Einfachkeit des Angriffs hat den Vorteil, dass er relativ robust gegen Änderungen an der Anlage ist, die den 0.5-Angriff außer Gefecht gesetzt hätten.
 Allerdings ist der Angriff auch leichter zu bemerken:
 Ein Ingenieur, der sich ohne Gehörschutz in der Anlage befindet, würde die Beschleunigung und Bremsung der Zentrifugen leicht hören.
-Dies wird dadurch noch verstärkt, dass Stuxnet versucht, den Angriff über mehrere PLCs hinweg zu synchronisieren
-(falls ein infiziertes WinCC vorhanden ist);
-diese Synchronisierung verursacht außerdem Netzwerk-Traffic – alle 5 Sekunden – der den Aufsehern der Anlage hätte auffallen müssen.
+Dies wird dadurch noch verstärkt, dass Stuxnet versucht, über ein infiziertes WinCC-System (falls vorhanden) den Angriff über mehrere PLCs hinweg zu synchronisieren.
+Diese Synchronisierung verursacht außerdem Netzwerk-Traffic – alle 5 Sekunden – der den Aufsehern der Anlage hätte auffallen müssen.
 
 Es ist also offensichtlich, dass sich zwischen Stuxnet 0.5 und 1.x der Fokus der Entwicklung
-von der physikalischen Sabotage der Anlage zur Infektion ihrer Systeme verschob;
-gleichzeitig legten die Entwickler geringeren Wert darauf, nicht entdeckt zu werden.
+von der physikalischen Sabotage der Anlage zur Infektion ihrer Systeme verschob.
+Gleichzeitig legten die Entwickler geringeren Wert darauf, nicht entdeckt zu werden.
 Es wird spekuliert, dass eine Enthüllung von Stuxnet nicht nur in Kauf genommen wurde,
 sondern sogar in einem gewissen Maße beabsichtigt war:
 Stuxnet demonstriert deutlich, dass Cyber-Kriegsführung möglich und erfolgreich ist,
