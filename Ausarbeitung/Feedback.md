@@ -8,7 +8,7 @@ Kapitel Zusammenfassung (inkl. Recap der Abschnitte)
 schwammig
 Es wird spekuliert -> Langner spekuliert, oder X zufolge wird spekuliert
 ✔Einzelnachweise eher humanistisch, Infos können Ctrl+F
-Instanzen kommunizieren (nicht Infektionen)
+✔Instanzen kommunizieren (nicht Infektionen)
 ✔File Shares -> SMB Verbindung herstellen
 ✔IR-1 in 2.2 zu weit weg, nochmal „Modell IR-1“ sagen
 ✔1.1 Allerdings wegmachen. Nur letzteres Isotop ist … fähig.

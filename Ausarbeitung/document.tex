@@ -245,12 +245,12 @@ und die Kommunikation ist in beide Richtungen durch XOR-Verknüpfung mit statisc
 \subsection{Updates verteilen}
 
 Da das schlussendliche Zielsystem von Stuxnet aus Sicherheitsgründen nicht direkt mit dem Internet verbunden ist,
-müssen Updates über mehrere Stuxnet-Infektionen propagiert werden.
+müssen Updates über mehrere Stuxnet-Instanzen propagiert werden.
 
 Stuxnet überprüft dazu vor jeder potenziellen Neuinfektion, ob das Zielsystem bereits infiziert ist.
 Ist dies der Fall, so werden die Versionen verglichen und gegebenenfalls das Zielsystem oder das eigene System aktualisiert.
 
-Außerdem können Stuxnet-Infektionen auch direkt über das Netzwerk kommunizieren.
+Außerdem können Stuxnet-Instanzen auch direkt über das Netzwerk kommunizieren.
 Stuxnet 0.5 verwendet dazu Mailslots, einen einfachen Mechanismus zur Interprozesskommunikation.
 Stuxnet 1.x started hingegen einen vollständigen \gls{rpc}-Server und -Client, % TODO proper abbreviations?
 der verschiedene Programmroutinen bereitstellt und aufruft.
@@ -386,7 +386,7 @@ die meiste Malware nutzt bekannte Sicherheitslücken, und selbst ein Zero-Day-Ex
 Die Command-and-Control-Fähigkeiten sind ebenfalls weiter fortgeschritten.
 Stuxnet lädt nicht nur neuen Code herunter, sondern meldet zuvor auch verschiedene Informationen über sein Hostsystem,
 inklusive Betriebssystem, Host- und Domainnamen, und ob bestimmte Registry-Keys, die auf eine Installation von Step7 oder WinCC hindeuten, vorhanden sind.
-Auch die Kommunikation unter Stuxnet-Infektionen ist ausgereifter:
+Auch die Kommunikation unter Stuxnet-Instanzen ist ausgereifter:
 anstelle einfacher Mailslots wird ein \gls{rpc}-Server aufgesetzt, der zehn verschiedene Routinen bereitstellt. % dossier p. 25
 
 Die Ausführung des tatsächlichen Angriffs steht in starkem Kontrast dazu:
