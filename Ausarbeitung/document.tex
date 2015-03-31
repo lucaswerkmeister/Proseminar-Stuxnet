@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{glossaries}
+\usepackage{float}
 
 \lstdefinestyle{c}{language=C,
 basicstyle=\footnotesize\ttfamily,
@@ -276,12 +277,14 @@ Eine Funktionspointertabelle (Function Pointer Table) ist ein Mittel,
 um effizient zwischen verschiedenen Verhaltensweisen eines Programms zu wählen.
 Dieses Beispiel in C demonstriert die Technik:
 
-\lstinputlisting[
-  language=C,
-  style=c,
-  caption=Implementierung und Verwendung einer Funktionspointertabelle,
-  escapechar=\%
-]{../functionPointerDemo2/01-harmless.c}
+\begin{figure}[H]
+  \lstinputlisting[
+    language=C,
+    style=c,
+    caption=Implementierung und Verwendung einer Funktionspointertabelle,
+    escapechar=\%
+  ]{../functionPointerDemo2/01-harmless.c}
+\end{figure}
 
 \texttt{execute()} führt eine unterschiedliche Operation aus, je nachdem, welche Funktion über das erste Argument ausgewählt wurde.
 Anderer Code muss somit nur noch die Indizes (Opcodes) der einzelnen Operationen kennen, nicht mehr die Funktionen, die tatsächlich ausgeführt werden.
@@ -290,25 +293,29 @@ Allerdings ist das Verhalten von \texttt{execute()} undefiniert, wenn ein ungül
 In diesem Fall wird Speicher gelesen, der nicht Teil der Funktionspointertabelle ist und vermutlich keinen gültigen Pointer in eine ausführbare Seite enthält.
 Ein Versuch, an diese vermeintliche Adresse zu springen, führt zu einem Segmentation Fault.
 
-\lstinputlisting[
-  language=C,
-  style=c,
-  firstline=19,
-  caption=Ungültige Verwendung der \texttt{execute()}-Funktion,
-  escapechar=\%
-]{../functionPointerDemo2/02-broken.c}
+\begin{figure}[H]
+  \lstinputlisting[
+    language=C,
+    style=c,
+    firstline=19,
+    caption=Ungültige Verwendung der \texttt{execute()}-Funktion,
+    escapechar=\%
+  ]{../functionPointerDemo2/02-broken.c}
+\end{figure}
 
 Dies ist allerdings nicht immer der Fall.
 Es ist durchaus möglich, dass an der richtigen Stelle ein Funktionspointer liegt,
 etwa weil im Quelltext ein anderes Feld dahinter deklariert wurde, das ebenfalls einen Funktionspointer enthält:
 
-\lstinputlisting[
-  language=C,
-  style=c,
-  %linerange={7-7,14-14,20-25},
-  caption=Ausführung von unbeabsichtigtem Code,
-  escapechar=\%
-]{../functionPointerDemo2/03-infected.c}
+\begin{figure}[H]
+  \lstinputlisting[
+    language=C,
+    style=c,
+    %linerange={7-7,14-14,20-25},
+    caption=Ausführung von unbeabsichtigtem Code,
+    escapechar=\%
+  ]{../functionPointerDemo2/03-infected.c}
+\end{figure}
 
 Im Falle von CVE-2010-2743 findet der Sprung in die Funktionspointertabelle innerhalb von \texttt{win32k.sys} beim Laden einer Tastaturbelegung statt.
 Hinter der Funktionstabelle liegen hier nicht weitere Funktionspointer, sondern andere Daten.
@@ -323,13 +330,15 @@ läuft der eingeschleuste Stuxnet-Code ebenfalls im Kernel-Mode.
 
 Der Fehler lässt sich sehr einfach beheben, indem der Index in die Funktionspointertabelle vor dem Sprung überprüft wird:
 
-\lstinputlisting[
-  language=C,
-  style=c,
-  linerange=19-26,
-  caption=Fehlerbehandlung,
-  escapechar=\%
-]{../functionPointerDemo2/04-protected.c}
+\begin{figure}[H]
+  \lstinputlisting[
+    language=C,
+    style=c,
+    linerange=19-26,
+    caption=Fehlerbehandlung,
+    escapechar=\%
+  ]{../functionPointerDemo2/04-protected.c}
+\end{figure}
 
 \subsection{CVE-2012-3015 Step7-Infektion}
 
