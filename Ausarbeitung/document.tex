@@ -404,16 +404,10 @@ Ein Ingenieur, der sich ohne Gehörschutz in der Anlage befindet, würde die Bes
 Dies wird dadurch noch verstärkt, dass Stuxnet versucht, über ein infiziertes WinCC-System (falls vorhanden) den Angriff über mehrere \glspl{plc} hinweg zu synchronisieren.
 Diese Synchronisierung verursacht außerdem Netzwerk-Traffic – alle 5 Sekunden – der den Aufsehern der Anlage hätte auffallen müssen.
 
-\section{Zusammenfassung und Ausblick}
-
-Wir sehen also, dass der Schwerpunkt der Entwicklung sich zwischen Stuxnet 0.5 und 1.x deutlich verschob:
-stand bei Stuxnet 0.5 die physikalische Sabotage im Vordergrund, so war die Entwicklung von Stuxnet 1.x klar auf den IT-Aspekt der Infektion der Systeme der Anlage konzentriert.
-Stuxnet 0.5 wirkt dabei wie ein Prototyp, der die Möglichkeiten der physikalischen Sabotage ausloten sollte.
-Nachdem dann feststand, dass diese Sabotage möglich war, wurde die Entwicklung an ein anderes Team übergeben,
-das auf einer anderen Entwicklungsplattform (Tilded\cite{05}) an den verschiedenen IT-Angriffen arbeitete.
-
-Das Ziel dieser Arbeit war, neben der Sabotage des iranischen Atomprogramms, erneut die Auslotung von Möglichkeiten:
-diesmal jedoch der Möglichkeiten einer „Cyber-Waffe“, die gezielt und unerkannt ein gegnerisches IT-System angreift und infiziert.
+Wir sehen hier eine veränderte Zielsetzung zwischen Stuxnet 0.5 und 1.x.
+Stuxnet 0.5 sollte vor allem die Möglichkeiten physikalischer Sabotage ausloten, auf die Verbreitung wurde nicht mehr Aufwand als nötig verwandt.
+Stuxnet 1.x hingegen, was offenbar von einem anderen Team entwickelt wurde\cite{05}, % p. 3
+sollte auch die Möglichkeiten einer „Cyber-Waffe“, die gezielt und unerkannt ein gegnerisches IT-System angreift und infiziert, erkunden.
 Geht man von den USA als Urheber von Stuxnet aus, so ergibt es Sinn, dass sie diese Möglichkeiten erkunden wollten,
 aus Angst, auf dem neuen Gebiet der digitalen Kriegsführung zurückzufallen (vergleichbar zum Space Race während des kalten Krieges).
 
@@ -422,11 +416,23 @@ Es mag attraktiv erschienen sein, als Urheber der ersten solchen digitalen Waffe
 selbst wenn man sich nicht offiziell zu dem Angriff bekennen würde.
 Die Tarnung musste also nur gut genug sein, damit die Angreifer eine Beteiligung glaubhaft bestreiten konnten.
 
-Stuxnet ist also das erste bekannte Beispiel einer digitalen Waffe, die zum Angriff auf ein Ziel eines anderen Landes genutzt wurde.
-Andere sollten folgen, etwa „Flame“ und „Duqu“.
-Zweifellos sind auch weitere solche Angriffe im Gange, die noch nicht entdeckt wurden.
+\section{Zusammenfassung und Ausblick}
 
-TODO: Die letzten paar Sätze fehlen noch, ich weiß nicht genau, wie ich aufhören soll…
+Wir wollten in dieser Arbeit Stuxnet 0.5 und 1.x vergleichen.
+Dabei haben wir festgestellt, dass sie außer der Infektion von Step7 kaum etwas gemeinsam haben.
+Stuxnet 0.5 war ein Prototyp, der die Möglichkeiten physikalischer Sabotage einer gegnerischen Industrieanlage testete.
+Seine Entwicklung war dementsprechend auf diese Sabotage fokussiert, die informationstechnischen Angriffe sind nicht komplexer als nötig.
+Stuxnet 1.x hingegen wählt eine deutlich einfachere und robustere Art der Sabotage und testete eine Vielzahl von IT-Angriffen
+auf mehrere Komponenten des IT-Systems der Anlage.
+
+Schlussendlich war Stuxnet 0.5 erfolgreicher dabei, unentdeckt zu bleiben:
+obwohl bereits 2005 in Entwicklung und 2007 bei einer Antiviren-Plattform hochgeladen,
+wurde er erst 2013 als Schädling und Vorgänger von Stuxnet erkannt.
+Stuxnet 1.x hingegen wurde bereits nach etwa einem Jahr in Aktion entdeckt und ausgiebig untersucht.
+Inwieweit beide Versionen darin erfolgreich waren, das iranische Atomprogramm zu sabotieren, ist unklar.
+Sie haben allerdings klar gezeigt, dass Großmächte wie die USA bereits vor zehn Jahren an informationstechnischen Waffen als Teil moderner Kriegsführung arbeiteten.
+Wir dürfen davon ausgehen, dass sich diese Entwicklung in den fünf Jahren seit Stuxnet 1.x fortgesetzt hat
+und dass Nachfolger von Stuxnet auch heute im Einsatz sind.
 
 \bibliographystyle{plain}
 \bibliography{document}
