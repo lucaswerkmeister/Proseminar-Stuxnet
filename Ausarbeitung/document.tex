@@ -50,6 +50,7 @@ matchrangestart=t
 
 \newacronym{plc}{PLC}{Programmable Logic Controller}
 \newacronym{rpc}{RPC}{Remote Procedure Call}
+\newacronym{scada}{SCADA}{Supervisory Control And Data Acquisition}
 
 \title{Stuxnet}
 \author{Lucas Werkmeister}
@@ -120,18 +121,21 @@ Anschließend kann der Betrieb normal weiterlaufen.
 
 \subsection{Steuerung der Anlage}
 
-Die Urananreicherungsanlage wird durch sogenannte SCADA-Software kontrolliert.
-Es ist unbekannt, welche Software genau im Iran zum Einsatz kommt.
-Nach einer Analyse von Langner\cite{tkac} handelt es sich aber um keines der üblichen Programme,
-sondern um eine speziell für Iran geschriebene Software.
+Die Urananreicherungsanlage wird durch verschiedene Software-Komponenten gesteuert.
+Die Überwachung geschieht durch sogenannte \gls{scada}-Software, etwa WinCC von Siemens.
+\gls{scada} liest die Werte verschiedener Sensoren, zum Beispiel Druck der Zentrifugen,
+und die aktuellen Steuerungsparameter, etwa Rotationsgeschwindigkeiten.
+Diese Informationen werden dann auf Gültigkeit geprüft sowie zur menschlichen Überwachung visuell aufbereitet.
+
+Ein Teil von Stuxnet 1.x ist speziell auf die \gls{scada}-Software WinCC zugeschnitten.
+Allerdings ist unklar, ob diese im Iran auch zum Einsatz kommt:
+nach einer Analyse von Langner\cite{tkac} wird eine speziell für Iran geschriebene Software verwendet.
 Das Programm wird als amateurhaft eingestuft.
 So sind etwa mehrmals Dialogboxen zu sehen, von deren Einsatz die Industrie abgerückt ist, weil sie andere Information verdecken können.
 Auch werden Standardbezeichnungen nicht verwendet.
-Daraus wird geschlossen, dass die Autoren des Programms mit dem Design moderner SCADA-Software wohl wenig vertraut seien.
+Daraus wird geschlossen, dass die Autoren des Programms mit dem Design moderner \gls{scada}-Software wohl wenig vertraut seien.
 
-Das SCADA-Programm steuert allerdings nicht direkt die Zentrifugen,
-sondern ist hauptsächlich ein Werkzeug zur Überwachung des Betriebs. % TKaC 9, Seite
-Die direkte Steuerung der Zentrifugen geschieht stattdessen durch sog. \glspl{plc}.
+Die direkte Steuerung der Anlage geschieht nicht durch \gls{scada}, sondern durch sogenannte \glspl{plc}.
 Dabei handelt es sich um einfache Prozessoren, die Signale von Sensoren verarbeiten,
 um Steuersignale zu setzen.
 In der Anlage von Natanz stammt dieser Teil des Systems von Siemens.
